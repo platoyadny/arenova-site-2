@@ -41,7 +41,7 @@
 
     <!-- Overlay Content -->
     <div class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white z-10 text-center px-4">
-      <h1 class="text-5xl font-bold mb-6">Welcome to Renova</h1>
+      <h1 class="text-5xl font-bold mb-6">Realize your dream space</h1>
       <button
         onclick="window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });"
         class="bg-white text-black px-6 py-3 rounded shadow-md hover:bg-gray-200 transition">
@@ -50,11 +50,11 @@
     </div>
 </section>
 
-<!-- Updated Black Section with Centered and Balanced Gallery -->
+<!-- Black Section with Logo on the Right -->
 <section class="bg-black text-white py-24 px-6">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-    <!-- Left Text Content -->
+    <!-- Left Text Column -->
     <div>
       <h2 class="text-3xl font-bold mb-4">
         Construction & Building Specialists in Saint-Petersburg and surrounding areas for over 15 years
@@ -68,28 +68,13 @@
       </div>
     </div>
 
-    <!-- Right Gallery Column -->
-    <div class="flex justify-center">
-      <div class="pl-20"> 
-        <div class="relative w-80 text-center">
-          <img id="gallery-image" src="assets/img/kitchen-fusion.jpg" alt="Work 1" class="w-full h-64 object-cover rounded-lg">
-          <p id="gallery-caption" class="mt-2 text-sm text-gray-300">Flat Renovation: Fusion</p>
-
-          <!-- Left Button -->
-          <button onclick="prevSlide()" class="absolute left-[-2rem] top-1/2 -translate-y-1/2 bg-gray-600 text-white rounded-full p-2 hover:bg-gray-500">
-            &#8592;
-          </button>
-
-          <!-- Right Button -->
-          <button onclick="nextSlide()" class="absolute right-[-2rem] top-1/2 -translate-y-1/2 bg-gray-600 text-white rounded-full p-2 hover:bg-gray-500">
-            &#8594;
-          </button>
-        </div>
-      </div>
+    <!-- Right Logo Column -->
+    <div class="flex justify-center pl-12">
+      <img src="assets/img/logo-transparant-grey.png" alt="Renova Logo" class="w-auto max-h-48">
     </div>
+
   </div>
 </section>
-<!-- <div class="h-12 bg-gradient-to-b from-black to-white"></div> -->
 
   <!-- Services Section -->
   <section id = "services" class="bg-white py-24">
@@ -139,26 +124,19 @@
     </div>
   </section>
 
+<!-- Full-width stacked 3-line divider -->
+<div class="w-full">
+  <div class="h-2" style="background-color: #072460;"></div>
+  <div class="h-2" style="background-color: #385080;"></div>
+  <div class="h-2" style="background-color: #6b7ca0;"></div>
+</div>
+
   <!-- Enhanced Recent Projects Split Section -->
 <section id="projects" class="bg-white text-black py-20 px-6">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-10 text-center">Recent Projects</h2>
+    <h2 class="text-4xl font-bold mb-12 text-center">RECENT PROJECTS</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-      <!-- Residential Projects Column -->
-      <div class="bg-gray-100 p-6 rounded shadow flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-bold mb-4">Residential Projects</h3>
-          <p class="text-sm text-gray-700 mb-6">
-            Explore some of our featured residential builds showcasing modern design,
-            quality finishes, and functional living spaces tailored to clients' needs.
-          </p>
-        </div>
-        <div>
-          <a href="#residential" class="inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">Explore More</a>
-        </div>
-      </div>
 
       <!-- Commercial Projects Column -->
       <div class="bg-gray-100 p-6 rounded shadow flex flex-col justify-between">
@@ -174,25 +152,157 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
+      <!-- Residential Projects Column -->
+      <div class="bg-gray-100 p-6 rounded shadow flex flex-col justify-between">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Residential Projects</h3>
+          <p class="text-sm text-gray-700 mb-6">
+            Explore some of our featured residential builds showcasing modern design,
+            quality finishes, and functional living spaces tailored to clients' needs.
+          </p>
+        </div>
+        <div>
+          <a href="#residential" class="inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">Explore More</a>
+        </div>
+      </div>
 
-<!-- Residential Section Banner -->
-<section id="residential" class="relative h-[60vh]">
-  <img src="assets/img/residential-banner.jpg" alt="Residential Projects" class="absolute w-full h-full object-cover">
-  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-    <h2 class="text-4xl md:text-5xl font-bold text-white">Residential Projects</h2>
+
+    </div>
   </div>
 </section>
 
 <!-- Commercial Section Banner -->
 <section id="commercial" class="relative h-[60vh]">
-  <img src="assets/img/commercial-banner.jpg" alt="Commercial Projects" class="absolute w-full h-full object-cover">
+  <img src="assets/img/commercial_background.jpg" alt="Commercial Projects" class="absolute w-full h-full object-cover">
   <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
     <h2 class="text-4xl md:text-5xl font-bold text-white">Commercial Projects</h2>
   </div>
 </section>
+
+<section class="bg-white py-20 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Column Titles -->
+    <div class="text-center font-semibold text-gray-700 text-lg">Final Result</div>
+    <div class="text-center font-semibold text-gray-700 text-lg">Initial Conditions</div>
+    <div class="text-center font-semibold text-gray-700 text-lg">Description</div>
+
+    <!-- Gallery Row (Reusable Structure) -->
+    <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="1" data-type="final">
+      <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/46-Leningradskaya-st/bedroom.jpg">
+      <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
+      <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
+    </div>
+
+    <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="1" data-type="initial">
+      <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/46-Leningradskaya-st/bedroom-before.jpeg">
+      <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
+      <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
+    </div>
+
+    <div class="bg-gray-100 p-6 rounded shadow-lg">
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Loft Conversion in Bristol</h3>
+      <p class="text-sm text-gray-700">
+        This 1930s property was transformed into a modern loft space. The client wanted more natural light, better insulation, and maximized floor area.
+      </p>
+    </div>
+
+    <!-- Second gallery pair (new row) -->
+    <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="2" data-type="final">
+      <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/Malaya-st/bathroom.jpg">
+      <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
+      <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
+    </div>
+
+    <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="2" data-type="initial">
+      <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/Malaya-st/bathroom-before.jpg">
+      <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
+      <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
+    </div>
+
+    <div class="bg-gray-100 p-6 rounded shadow-lg">
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Flat Upgrade on Malaya St</h3>
+      <p class="text-sm text-gray-700">
+        Full transformation of a small flat into a stylish and space-optimized interior, including kitchen and bathroom redesign.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Residential Section Banner -->
+<section id="residential" class="relative h-[60vh]">
+  <img src="assets/img/residential_background.jpg" alt="Residential Projects" class="absolute w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-white">Residential Projects</h2>
+  </div>
+</section>
+
+
+<script>
+  const galleries = {
+    1: {
+      final: [
+        "assets/img/commercial/46-Leningradskaya-st/bedroom.jpg",
+        "assets/img/commercial/46-Leningradskaya-st/toilet.jpeg",
+        "assets/img/commercial/46-Leningradskaya-st/kitchen.jpeg",
+        "assets/img/commercial/46-Leningradskaya-st/livingroom-sofa.jpeg",
+        "assets/img/commercial/46-Leningradskaya-st/bathroom-sink.jpeg"
+      ],
+      initial: [
+        "assets/img/commercial/46-Leningradskaya-st/bedroom-before.jpeg",
+        "assets/img/commercial/46-Leningradskaya-st/bathroom-before.jpeg",
+        "assets/img/commercial/46-Leningradskaya-st/kitchen-before.jpeg",
+        "assets/img/commercial/46-Leningradskaya-st/bedroom2-before.jpeg"
+      ]
+    },
+    2: {
+      final: [
+        "assets/img/commercial/Malaya-st/bathroom.jpg",
+        "assets/img/commercial/Malaya-st/sink.jpg",
+        "assets/img/commercial/Malaya-st/kitchen.jpg",
+        "assets/img/commercial/Malaya-st/livingroom.jpg"
+      ],
+      initial: [
+        "assets/img/commercial/Malaya-st/bathroom-before.jpg",
+        "assets/img/commercial/Malaya-st/sink-before.jpg",
+        "assets/img/commercial/Malaya-st/kitchen-before.jpg",
+        "assets/img/commercial/Malaya-st/livingroom-before.jpg"
+      ]
+    }
+  };
+
+  const currentIndexes = {};
+
+  document.querySelectorAll('[data-gallery]').forEach(container => {
+    const galleryId = container.dataset.gallery;
+    const type = container.dataset.type;
+    const img = container.querySelector('.gallery-img');
+    const nextBtn = container.querySelector('.next');
+    const prevBtn = container.querySelector('.prev');
+
+    currentIndexes[galleryId] = currentIndexes[galleryId] || { final: 0, initial: 0 };
+
+    const update = () => {
+      img.src = galleries[galleryId][type][currentIndexes[galleryId][type]];
+    };
+
+    nextBtn.addEventListener('click', () => {
+      const list = galleries[galleryId][type];
+      currentIndexes[galleryId][type] = (currentIndexes[galleryId][type] + 1) % list.length;
+      update();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const list = galleries[galleryId][type];
+      currentIndexes[galleryId][type] = (currentIndexes[galleryId][type] - 1 + list.length) % list.length;
+      update();
+    });
+
+    update();
+  });
+</script>
 
 
   <!-- Script for dynamically changing navba opacity-->
