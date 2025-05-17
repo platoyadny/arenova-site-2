@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arenova site</title>  
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="tailwind.css">  <!-- correct path -->
+    <style>
+        html {
+        scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-70 transition-colors duration-300">
+        <div class="flex items-center justify-between px-2 py-0">
+            <!-- Logo -->
+            <a href="index.html">
+                <img src="assets/img/logo-transparant-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2">
+            </a>
+            <!-- Nav Links -->
+            <div class="space-x-8 text-white uppercase text-base px-4">
+                <a href="index.html" class="hover:text-gray-300">Home</a>
+                <a href="services.html" class="hover:text-gray-300">Services</a>
+                <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
+                <a href="about.html" class="hover:text-gray-300">About Us</a>
+                <a href="contact.html" class="hover:text-gray-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- Enquiry Section -->
+<section id="contact" class="bg-black text-white py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4 md:px-8">
+  
+      <!-- Left Column: Contact Info -->
+      <div>
+        <h2 class="text-4xl font-bold mb-6">Enquiries</h2>
+        <p class="mb-6 text-gray-300">
+          Please fill out the form with your enquiry and we'll get back to you shortly.
+          Alternatively, reach us directly:
+        </p>
+        <div class="space-y-6 text-sm text-gray-300">
+          <div>
+            <h4 class="text-orange-500 font-semibold mb-1">Office</h4>
+            <p>55 Headley Lane<br>Headley Park<br>Bristol<br>BS13 7QL</p>
+          </div>
+          <div>
+            <h4 class="text-orange-500 font-semibold mb-1">Phone</h4>
+            <p class="text-lg text-white font-semibold">07904 308 873</p>
+          </div>
+          <div>
+            <h4 class="text-orange-500 font-semibold mb-1">Email</h4>
+            <p>info@arenova.uk</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right Column: Contact Form -->
+      <form action="https://formspree.io/f/xovdrldo" method="POST" class="space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input type="text" name="first-name" placeholder="First Name" required class="w-full p-3 rounded text-black" />
+          <input type="text" name="last-name" placeholder="Last Name" required class="w-full p-3 rounded text-black" />
+          <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded text-black" />
+          <input type="text" name="phone" placeholder="Phone" class="w-full p-3 rounded text-black" />
+          <input type="text" name="address" placeholder="Address/Area" class="w-full p-3 rounded text-black sm:col-span-2" />
+        </div>
+  
+        <textarea name="message" rows="5" placeholder="Tell us a bit about your vision..." class="w-full p-3 rounded text-black"></textarea>
+  
+        <div class="space-y-2">
+          <p class="font-semibold text-sm">How did you hear about us?</p>
+          <label class="block"><input type="radio" name="referral" value="Word of mouth" class="mr-2" /> Word of mouth</label>
+          <label class="block"><input type="radio" name="referral" value="Facebook" class="mr-2" /> Facebook</label>
+          <label class="block"><input type="radio" name="referral" value="Google" class="mr-2" /> Google</label>
+          <label class="block"><input type="radio" name="referral" value="Other" class="mr-2" /> Other</label>
+        </div>
+  
+        <button type="submit" class="mt-6 bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition">
+          Send
+        </button>
+      </form>
+  
+    </div>
+  </section>
+
+
+<script src="js/navbar-scroll.js"></script>
+
+</body>
+</html>
