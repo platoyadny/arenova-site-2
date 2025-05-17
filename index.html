@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>start with create-tailwind-app</title>  
+    <title>Arenova site</title>  
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
     <link rel="stylesheet" href="tailwind.css">  <!-- correct path -->
     <style>
       html {
@@ -239,7 +242,250 @@
   </div>
 </section>
 
+<!-- Project Card -->
+<section id="projects" class="bg-white py-16 px-4">
+  <div class="max-w-7xl mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
+    
+    <!-- Card Wrapper for Project No. 1424 -->
+    <div class="p-6">
+      <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
+        <div class="relative h-64 overflow-hidden">
+          <img id="project-img-1" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/46-Leningradskaya-st/bathroom.jpeg" alt="Project Image">
+          <button onclick="prevImage(1)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
+          <button onclick="nextImage(1)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
+        </div>
+        <div class="p-6 bg-gray-800 text-left">
+          <h3 class="text-2xl font-custom mb-4">Project No. 1424</h3>
+          <div class="flex justify-between text-sm font-light">
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Project Type</p>
+              <p>Architectural</p>
+              <p>Bathroom</p>
+              <p>Interiors</p>
+              <p>Kitchen</p>
+              <p>Refurbishment</p>
+            </div>
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Location</p>
+              <p>Horfield</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Card Wrapper for Project No. 1333 -->
+    <div class="p-6">
+      <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
+        <div class="relative h-64 overflow-hidden">
+          <img id="project-img-2" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/Malaya-st/bathroom.jpg" alt="Project Image">
+          <button onclick="prevImage(2)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
+          <button onclick="nextImage(2)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
+        </div>
+        <div class="p-6 bg-gray-800 text-left">
+          <h3 class="text-2xl font-custom mb-4">Project No. 1333</h3>
+          <div class="flex justify-between text-sm font-light">
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Project Type</p>
+              <p>Architectural</p>
+              <p>Bathroom</p>
+              <p>Interiors</p>
+              <p>Kitchen</p>
+              <p>Refurbishment</p>
+            </div>
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Location</p>
+              <p>Horfield</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Wrapper for Project No. 1373 -->
+    <div class="p-6">
+      <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
+        <div class="relative h-64 overflow-hidden">
+          <img id="project-img-3" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/Srednerogatskaya-st/livingroom.jpg" alt="Project Image">
+          <button onclick="prevImage(3)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
+          <button onclick="nextImage(3)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
+        </div>
+        <div class="p-6 bg-gray-800 text-left">
+          <h3 class="text-2xl font-custom mb-4">Project No. 1373</h3>
+          <div class="flex justify-between text-sm font-light">
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Project Type</p>
+              <p>Architectural</p>
+              <p>Bathroom</p>
+              <p>Interiors</p>
+              <p>Kitchen</p>
+              <p>Refurbishment</p>
+            </div>
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Location</p>
+              <p>Horfield</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="bg-white py-20 px-4">
+  <!-- Section Heading -->
+  <div class="max-w-7xl mx-auto mb-12">
+    <h2 class="text-4xl font-bold text-center text-gray-800">About Us</h2>
+  </div>
+
+  <!-- Two-Column Layout -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <!-- Custom CSS for blur -->
+    <style>
+      .custom-blur {
+        filter: blur(0px);     /* Adjust blur intensity */
+        opacity: 0.6;         /* Optional: soften the image */
+      }
+    </style>
+
+    <!-- Left: Perfectly Square Image with Blur -->
+    <div class="w-full max-w-full relative" style="padding-top: 100%;">
+      <img
+        src="assets/img/about_us_background.jpg"
+        alt="About Arenova"
+        class="absolute inset-0 w-full h-full object-cover object-bottom rounded-lg shadow-md custom-blur"
+      />
+    </div>
+
+    <!-- Right: Text -->
+    <div class="flex items-center justify-center h-full">
+      <div class="w-full max-w-sm text-center md:text-left">
+        <span class="text-sm uppercase tracking-wide text-orange-500 font-semibold block mb-2">
+          Trusted Builders in Saint-Petersburg
+        </span>
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">About Arenova</h3>
+        <p class="text-gray-700 text-base leading-relaxed">
+          At Arenova, we bring over 15 years of construction and renovation experience. Our passion lies in transforming spaces to meet your dreams. We specialize in architectural innovation, personalized design, and full-service execution for both commercial and residential projects.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Enquiry Section -->
+<section id="contact" class="bg-black text-white py-20 px-6">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4 md:px-8">
+
+    <!-- Left Column: Contact Info -->
+    <div>
+      <h2 class="text-4xl font-bold mb-6">Enquiries</h2>
+      <p class="mb-6 text-gray-300">
+        Please fill out the form with your enquiry and we'll get back to you shortly.
+        Alternatively, reach us directly:
+      </p>
+      <div class="space-y-6 text-sm text-gray-300">
+        <div>
+          <h4 class="text-orange-500 font-semibold mb-1">Office</h4>
+          <p>55 Headley Lane<br>Headley Park<br>Bristol<br>BS13 7QL</p>
+        </div>
+        <div>
+          <h4 class="text-orange-500 font-semibold mb-1">Phone</h4>
+          <p class="text-lg text-white font-semibold">07904 308 873</p>
+        </div>
+        <div>
+          <h4 class="text-orange-500 font-semibold mb-1">Email</h4>
+          <p>info@arenova.uk</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Contact Form -->
+    <form action="https://formspree.io/f/xovdrldo" method="POST" class="space-y-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input type="text" name="first-name" placeholder="First Name" required class="w-full p-3 rounded text-black" />
+        <input type="text" name="last-name" placeholder="Last Name" required class="w-full p-3 rounded text-black" />
+        <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded text-black" />
+        <input type="text" name="phone" placeholder="Phone" class="w-full p-3 rounded text-black" />
+        <input type="text" name="address" placeholder="Address/Area" class="w-full p-3 rounded text-black sm:col-span-2" />
+      </div>
+
+      <textarea name="message" rows="5" placeholder="Tell us a bit about your vision..." class="w-full p-3 rounded text-black"></textarea>
+
+      <div class="space-y-2">
+        <p class="font-semibold text-sm">How did you hear about us?</p>
+        <label class="block"><input type="radio" name="referral" value="Word of mouth" class="mr-2" /> Word of mouth</label>
+        <label class="block"><input type="radio" name="referral" value="Facebook" class="mr-2" /> Facebook</label>
+        <label class="block"><input type="radio" name="referral" value="Google" class="mr-2" /> Google</label>
+        <label class="block"><input type="radio" name="referral" value="Other" class="mr-2" /> Other</label>
+      </div>
+
+      <button type="submit" class="mt-6 bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition">
+        Send
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<script>
+  // Wrap everything inside an IIFE (Immediately Invoked Function Expression)
+  (function createProjectGalleryCarousel() {
+    const galleryImages = {
+      1: [
+        "assets/img/commercial/46-Leningradskaya-st/bedroom.jpg",
+        "assets/img/commercial/46-Leningradskaya-st/toilet.jpeg",
+        "assets/img/commercial/46-Leningradskaya-st/kitchen.jpeg"
+      ],
+      2: [
+        "assets/img/commercial/Malaya-st/kitchen-details.jpg",
+        "assets/img/commercial/Malaya-st/kitchen.jpg",
+        "assets/img/commercial/Malaya-st/sink.jpg"
+      ],
+      3: [
+        "assets/img/commercial/Srednerogatskaya-st/kitchen.jpg",
+        "assets/img/commercial/Srednerogatskaya-st/hallway.jpg",
+        "assets/img/commercial/Srednerogatskaya-st/bathroom-sink.jpg"
+      ]
+    };
+
+    const currentIndexes = {};
+
+    function updateImage(projectId) {
+      const img = document.getElementById(`project-img-${projectId}`);
+      if (img && galleryImages[projectId]) {
+        img.src = galleryImages[projectId][currentIndexes[projectId]];
+      }
+    }
+
+    window.nextImage = function (projectId) {
+      if (!currentIndexes.hasOwnProperty(projectId)) currentIndexes[projectId] = 0;
+      const images = galleryImages[projectId];
+      currentIndexes[projectId] = (currentIndexes[projectId] + 1) % images.length;
+      updateImage(projectId);
+    };
+
+    window.prevImage = function (projectId) {
+      if (!currentIndexes.hasOwnProperty(projectId)) currentIndexes[projectId] = 0;
+      const images = galleryImages[projectId];
+      currentIndexes[projectId] = (currentIndexes[projectId] - 1 + images.length) % images.length;
+      updateImage(projectId);
+    };
+
+    // Auto-initialize first image per project
+    for (const projectId in galleryImages) {
+      if (galleryImages.hasOwnProperty(projectId)) {
+        currentIndexes[projectId] = 0;
+        updateImage(projectId);
+      }
+    }
+  })();
+</script>
+
+
+<!-- Script for the galleries in the "Recent Projects" -->
 <script>
   const galleries = {
     1: {

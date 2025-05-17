@@ -1,7 +1,11 @@
 module.exports = {
-  content: ["./public/**/*.{html,js}"],
+  content: ["./**/*.{html,js}"], // make sure to scan all folders if not limited to /public
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        custom: ['Poppins', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
