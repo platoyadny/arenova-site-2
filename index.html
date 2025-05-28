@@ -36,54 +36,35 @@
     </nav>
 
 
-<!-- Hero Section with Background Video -->
-<section class="relative w-full h-screen overflow-hidden">
-    <iframe
-      src="https://player.vimeo.com/video/1081278060?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-      class="absolute top-0 left-0 w-full h-full pointer-events-none">
-    </iframe>
+<!-- Hero Section with Static Background Image and Overlay -->
+<section class="relative w-full h-screen bg-cover bg-center" style="background-image: url('assets/img/background.jpg');">
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
 
-    <!-- Overlay Content -->
-    <div class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white z-10 text-center px-4">
-      <h1 class="text-5xl font-bold mb-6">Realize your dream space</h1>
-      <button
-        onclick="window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });"
-        class="bg-white text-black px-6 py-3 rounded shadow-md hover:bg-gray-200 transition">
-        Discover More
-      </button>
-    </div>
-</section>
+  <!-- Centered Logo + Caption -->
+  <div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-white text-center px-6">
+    
+    <!-- Logo -->
+    <img src="assets/img/logo-transparant-grey.png" alt="Renova Logo" class="w-64 max-w-full mb-6">
 
-<!-- Black Section with Logo on the Right -->
-<section class="bg-black text-white py-24 px-6">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- Caption -->
+    <h1 class="text-3xl md:text-5xl font-bold leading-tight max-w-3xl">
+      Construction & Building Specialists in Saint-Petersburg and surrounding areas for over 15 years
+    </h1>
 
-    <!-- Left Text Column -->
-    <div>
-      <h2 class="text-3xl font-bold mb-4">
-        Construction & Building Specialists in Saint-Petersburg and surrounding areas for over 15 years
-      </h2>
-      <div class="space-x-4 mt-6">
-        <a href="projects.html">
-          <button class="bg-white text-black px-5 py-2 rounded hover:bg-gray-300">
-            Recent Projects
-          </button>
-        </a>
-        <a href="contact.html">
-          <button class="bg-gray-700 px-5 py-2 rounded hover:bg-gray-600">
-            Talk to Us
-          </button>
-        </a>
-      </div>
-    </div>
-
-    <!-- Right Logo Column -->
-    <div class="flex justify-center pl-12">
-      <img src="assets/img/logo-transparant-grey.png" alt="Renova Logo" class="w-auto max-h-48">
-    </div>
+    <!-- Buttons -->
+    <!-- <div class="mt-8 space-x-4">
+      <a href="projects.html">
+        <button class="bg-white text-black px-6 py-3 rounded shadow hover:bg-gray-200 transition">
+          Recent Projects
+        </button>
+      </a>
+      <a href="contact.html">
+        <button class="bg-gray-700 px-6 py-3 rounded shadow hover:bg-gray-600 transition">
+          Talk to Us
+        </button>
+      </a>
+    </div> -->
 
   </div>
 </section>
@@ -119,9 +100,31 @@
   </div>
 </section>
 
+<!-- Describtion Section -->
+<section class="relative py-24 px-4 bg-cover bg-center" style="background-image: url('assets/img/background-for-motto.jpg');">
+  <!-- Overlay (optional for blur/dim) -->
+  <div class="absolute inset-0 bg-white bg-opacity-60 backdrop-blur-sm z-0"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug space-y-4">
+      <span class="block text-blue-800 opacity-0 translate-y-8 transition-all duration-700 scroll-fade">We take pride in creating</span>
+      <span class="block text-red-600 font-bold text-4xl opacity-0 translate-y-8 transition-all duration-700 scroll-fade delay-200">beautiful & functional new spaces</span>
+      <span class="block text-blue-800 opacity-0 translate-y-8 transition-all duration-700 scroll-fade delay-400">where households can thrive</span>
+    </h2>
+
+    <div class="mt-8 opacity-0 translate-y-8 transition-all duration-700 scroll-fade delay-600">
+      <a href="services.html" class="inline-block bg-blue-900 text-white px-6 py-3 rounded shadow hover:bg-blue-700 transition">
+        SEE OUR SERVICES
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <script src="js/navbar-scroll.js"></script>
 <script src="js/page-fade.js"></script>
+<script src="js/text-animation.js"></script>
 
 
 </body>
