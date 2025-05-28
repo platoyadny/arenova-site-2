@@ -1,40 +1,49 @@
-function waitForImages(container) {
+function waitForImages(container, timeout = 3000) {
   const images = container.querySelectorAll('img');
   const promises = [];
 
   images.forEach((img) => {
     if (!img.complete) {
-      promises.push(
-        new Promise((resolve) => {
-          img.onload = resolve;
-          img.onerror = resolve;
-        })
-      );
+      promises.push(new Promise((resolve) => {
+        img.onload = resolve;
+        img.onerror = resolve;
+      }));
     }
   });
 
-  return Promise.all(promises);
+  return Promise.race([
+    Promise.all(promises),
+    new Promise(resolve => setTimeout(resolve, timeout))
+  ]);
+}
+
+function waitForNextFrame() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(resolve);
+    });
+  });
 }
 
 barba.init({
   transitions: [
     {
-      name: 'fade',
+      name: 'fade-entire-container',
       async leave(data) {
-        const currentWrapper = data.current.container.querySelector('.page-wrapper');
-        await gsap.to(currentWrapper, { opacity: 0, duration: 0.6 });
+        // 👇 Fade out the entire container (navbar + content)
+        await gsap.to(data.current.container, { opacity: 0, duration: 0.7 });
       },
       async enter(data) {
-        const nextWrapper = data.next.container.querySelector('.page-wrapper');
+        const nextContainer = data.next.container;
 
-        
-        await waitForImages(data.next.container);
+        await waitForImages(nextContainer);
+        await waitForNextFrame();
 
-        
-        gsap.set(nextWrapper, { opacity: 0 });
+        // Hide initially
+        gsap.set(nextContainer, { opacity: 0 });
 
-      
-        await gsap.to(nextWrapper, { opacity: 1, duration: 0.6 });
+        // Fade in
+        await gsap.to(nextContainer, { opacity: 1, duration: 0.7 });
       }
     }
   ]

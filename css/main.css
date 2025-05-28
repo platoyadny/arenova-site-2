@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Apply Poppins font globally */
+@layer base {
+  body {
+    @apply font-custom;
+  }
+}
+
+/* Ensure images behave responsively */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body {
+  transition: opacity 0.5s ease;
+}
