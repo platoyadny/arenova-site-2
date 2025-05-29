@@ -100,31 +100,93 @@
   </div>
 </section>
 
-<!-- Describtion Section -->
-<section class="relative py-24 px-4 bg-cover bg-center" style="background-image: url('assets/img/background-for-motto.jpg');">
-  <!-- Overlay (optional for blur/dim) -->
-  <div class="absolute inset-0 bg-white bg-opacity-60 backdrop-blur-sm z-0"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-5xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug space-y-4">
-      <span class="block text-blue-800 opacity-0 translate-y-8 transition-all duration-700 scroll-fade">We take pride in creating</span>
-      <span class="block text-red-600 font-bold text-4xl opacity-0 translate-y-8 transition-all duration-700 scroll-fade delay-200">beautiful & functional new spaces</span>
-      <span class="block text-blue-800 opacity-0 translate-y-8 transition-all duration-700 scroll-fade delay-400">where households can thrive</span>
-    </h2>
+<section id="description-section" class="bg-[#eaeaeb] py-24 px-4 relative overflow-hidden">
+  <!-- Image Collage Background -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <!-- Image 1 (Bottom Left) -->
+    <img src="assets/img/background-for-describtion/bg-for-describtion-1.jpg"
+        alt=""
+        class="absolute w-[300px] top-16 left-16 opacity-50 blur-sm rotate-3 shadow-xl">
 
-    <div class="mt-8 opacity-0 translate-y-8 transition-all duration-700 scroll-fade delay-600">
-      <a href="services.html" class="inline-block bg-blue-900 text-white px-6 py-3 rounded shadow hover:bg-blue-700 transition">
-        SEE OUR SERVICES
-      </a>
+    <!-- Image 2 (Middle Top, overlaps Image 1) -->
+    <img src="assets/img/background-for-describtion/bg-for-describtion-2.jpg"
+        alt=""
+        class="absolute w-[360px] top-8 left-32 opacity-40 blur-sm -rotate-2 shadow-xl">
+
+    <!-- Image 3 (Bottom Right) -->
+    <img src="assets/img/background-for-describtion/bg-for-describtion-3.jpg"
+        alt=""
+        class="absolute w-[320px] bottom-16 right-12 opacity-40 blur-[2px] rotate-1 shadow-xl">
+  </div>
+
+  <!-- Text Content -->
+  <div class="relative z-10 max-w-5xl mx-auto flex justify-center">
+    <div class="w-full md:w-1/2 text-[#36383e] text-left">
+      <!-- Title -->
+      <h2 id="desc-title" class="text-3xl md:text-4xl font-semibold mb-6 opacity-0 translate-y-8">
+        Why Arenova?
+      </h2>
+
+      <!-- Description Paragraphs -->
+      <p id="desc-line-1" class="text-base md:text-lg leading-relaxed mb-4 opacity-0 translate-y-8">
+        Design and build all under one roof.
+      </p>
+      <p id="desc-line-2" class="text-base md:text-lg leading-relaxed mb-4 opacity-0 translate-y-8">
+        We are a true design and build company with a dedicated in-house architecture, construction team and kitchen showroom all based out of our design studio and showroom space, working together from the start of project to ensure a consistent approach which drives certainty on your project.
+      </p>
+      <p id="desc-line-3" class="text-base md:text-lg leading-relaxed mb-6 opacity-0 translate-y-8">
+        Our key focus is to provide you with time and cost certainty alongside a collaborative design process.
+      </p>
+
+      <!-- Button -->
+      <div id="desc-button" class="opacity-0 translate-y-8">
+        <a href="about.html" class="inline-block border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">
+          → Find Out More
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 
+<footer class="bg-black text-white py-8 text-center">
+  <p class="text-sm">© 2025 Arenova. All rights reserved.</p>
+</footer>
+
+
 <script src="js/navbar-scroll.js"></script>
 <script src="js/page-fade.js"></script>
-<script src="js/text-animation.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const elementsToReveal = [
+  "#desc-title",
+  "#desc-line-1",
+  "#desc-line-2",
+  "#desc-line-3",
+  "#desc-button" // Now this is in sync!
+];
+
+  elementsToReveal.forEach((selector, i) => {
+    gsap.fromTo(selector,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.1,
+        scrollTrigger: {
+          trigger: selector,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+</script>
 
 
 </body>
