@@ -35,119 +35,84 @@
         </div>
     </nav>
 
+<!-- Projects Page Header with Animated Text -->
+<section class="bg-[#eaeaeb] h-screen flex flex-col items-center justify-center text-[#36383e] pt-32">
+  <!-- Subheading -->
+  <p id="projects-subheading" class="text-sm md:text-base mb-8 opacity-0 translate-y-8">
+    Our Work
+  </p>
 
+  <!-- Main Heading -->
+  <h1 id="project-title" class="text-3xl md:text-5xl font-semibold text-center max-w-4xl opacity-0 translate-y-8">
+    Extensions, interiors and<br>
+    wherever else your imagination<br>
+    takes you
+  </h1>
 
-<!-- Enhanced Recent Projects Split Section -->
-<section id="projects" class="bg-white text-black py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-12 text-center">RECENT PROJECTS</h2>
-  
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  
-        <!-- Commercial Projects Column -->
-        <div class="bg-gray-100 p-6 rounded shadow flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold mb-4">Commercial Projects</h3>
-            <p class="text-sm text-gray-700 mb-6">
-              Take a look at our commercial developments designed for functionality and
-              sustainability, with outstanding architectural presence.
-            </p>
-          </div>
-          <div>
-            <a href="#commercial" class="inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">Explore More</a>
-          </div>
-        </div>
-  
-        <!-- Residential Projects Column -->
-        <div class="bg-gray-100 p-6 rounded shadow flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold mb-4">Residential Projects</h3>
-            <p class="text-sm text-gray-700 mb-6">
-              Explore some of our featured residential builds showcasing modern design,
-              quality finishes, and functional living spaces tailored to clients' needs.
-            </p>
-          </div>
-          <div>
-            <a href="#residential" class="inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">Explore More</a>
-          </div>
-        </div>
-  
-  
-      </div>
-    </div>
-  </section>
-  
-  <!-- Commercial Section Banner -->
-  <section id="commercial" class="relative h-[60vh]">
-    <img src="assets/img/commercial_background.jpg" alt="Commercial Projects" class="absolute w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-white">Commercial Projects</h2>
-    </div>
-  </section>
-  
-  <!-- Initnal version of galleries -->
-  <section class="bg-white py-20 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-  
-      <!-- Column Titles -->
-      <div class="text-center font-semibold text-gray-700 text-lg">Final Result</div>
-      <div class="text-center font-semibold text-gray-700 text-lg">Initial Conditions</div>
-      <div class="text-center font-semibold text-gray-700 text-lg">Description</div>
-  
-      <!-- Gallery Row (Reusable Structure) -->
-      <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="1" data-type="final">
-        <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/46-Leningradskaya-st/bedroom.jpg">
-        <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
-        <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
-      </div>
-  
-      <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="1" data-type="initial">
-        <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/46-Leningradskaya-st/bedroom-before.jpeg">
-        <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
-        <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
-      </div>
-  
-      <div class="bg-gray-100 p-6 rounded shadow-lg">
-        <h3 class="text-xl font-bold mb-2 text-gray-800">Loft Conversion in Bristol</h3>
-        <p class="text-sm text-gray-700">
-          This 1930s property was transformed into a modern loft space. The client wanted more natural light, better insulation, and maximized floor area.
+  <!-- Buttons -->
+  <div id="projects-buttons" class="mt-32 flex space-x-4 opacity-0 translate-y-8">
+    <a href="#" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Commercial</a>
+    <a href="#" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Residential</a>
+  </div>
+</section>
+
+<!-- Project Card Wrapper -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#eaeaeb]">
+  <!-- Back Grey Rectangle -->
+  <div class="absolute w-[85%] h-[85%] bg-[#9b9c9e] top-8 left-8 z-0"></div>
+
+  <!-- Main Image -->
+  <div id="project-image" class="relative w-[85%] h-[85%] z-10 opacity-0 translate-y-12 transition duration-700 ease-out">
+    <img src="assets/img/out-projects-page/project-card-1.jpg" alt="Project Photo" class="w-full h-full object-cover">
+
+    <!-- Front Info Box -->
+    <div class="absolute bottom-[-1rem] right-[-1rem] w-[22rem] h-[20rem] bg-[#36383e] text-[#eaeaeb] p-6 z-10 shadow-lg">
+      <h3 class="text-xl font-semibold mb-4">Project No. 1465</h3>
+      <div class="text-sm">
+        <p class="mb-2"><span class="text-gray-400">Project Type</span><br>
+          Architectural<br>Bathroom<br>Extension<br>Interiors<br>Kitchen<br>Refurbishment
+        </p>
+        <p><span class="text-gray-400">Location</span><br>
+          Westbury Park, Bristol
         </p>
       </div>
-  
-      <!-- Second gallery pair (new row) -->
-      <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="2" data-type="final">
-        <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/Malaya-st/bathroom.jpg">
-        <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
-        <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
-      </div>
-  
-      <div class="relative w-full h-64 overflow-hidden rounded shadow-lg" data-gallery="2" data-type="initial">
-        <img class="gallery-img w-full h-full object-cover" src="assets/img/commercial/Malaya-st/bathroom-before.jpg">
-        <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8592;</button>
-        <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-600 text-white rounded-full p-1">&#8594;</button>
-      </div>
-  
-      <div class="bg-gray-100 p-6 rounded shadow-lg">
-        <h3 class="text-xl font-bold mb-2 text-gray-800">Flat Upgrade on Malaya St</h3>
-        <p class="text-sm text-gray-700">
-          Full transformation of a small flat into a stylish and space-optimized interior, including kitchen and bathroom redesign.
-        </p>
-      </div>
-  
     </div>
-  </section>
-  
-  
-  <!-- Residential Section Banner -->
-  <section id="residential" class="relative h-[60vh]">
-    <img src="assets/img/residential_background.jpg" alt="Residential Projects" class="absolute w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-white">Residential Projects</h2>
+  </div>
+</section>
+
+<section class="h-screen flex items-center justify-center bg-[#eaeaeb]">
+  <div class="flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 gap-0 md:gap-4 opacity-0 translate-y-8 project-card">
+
+    <!-- Project Image -->
+    <div class="w-full md:w-1/2">
+      <img src="assets/img/out-projects-page/project-card-1.jpg" alt="Project 1" class="object-cover w-full h-full">
     </div>
-  </section>
+
+    <!-- Info Card -->
+    <div class="w-full md:w-1/2 bg-[#36383e] text-[#eaeaeb] p-10 flex flex-col justify-center">
+      <h3 class="text-2xl font-semibold mb-4">Project No. 1465</h3>
+      <div class="mb-6">
+        <p class="text-sm text-gray-400">Project Type</p>
+        <ul class="list-none space-y-1">
+          <li>Architectural</li>
+          <li>Bathroom</li>
+          <li>Extension</li>
+          <li>Interiors</li>
+          <li>Kitchen</li>
+          <li>Refurbishment</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm text-gray-400">Location</p>
+        <p>Westbury Park, Bristol</p>
+      </div>
+    </div>
+
+  </div>
+</section>
   
   <!-- Second version of galleries version: Project Card -->
-  <section id="projects" class="bg-white py-16 px-4">
+  <section id="projects" class="bg-[#eaeaeb] py-16 px-4">
     <div class="max-w-7xl mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
       
       <!-- Card Wrapper for Project No. 1424 -->
@@ -238,9 +203,78 @@
   </section>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+  <!-- Script for the dynamic text animation -->
+  <script>
+    const projectSectionElements = [
+      "#projects-subheading",
+      "#project-title",
+      "#projects-buttons"
+    ];
+  
+    projectSectionElements.forEach((selector, i) => {
+      gsap.fromTo(selector,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: selector,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  </script>
+
+  <!-- Script for the dynamic card animation -->
+  <!-- <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".project-card").forEach(card => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 80 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  </script> -->
+
+  <!-- GSAP Animation Script -->
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to("#project-image", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#project-image",
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    }
+  });
+</script>
+
+  
 
 <script src="js/navbar-scroll.js"></script>
-<script src="js/before-after-gellary.js"></script>
+<!-- <script src="js/before-after-gellary.js"></script> -->
 <script src="js/project-card-gallery.js"></script>
 <script src="js/page-fade.js"></script>
 
