@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project No. 1465</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tailwind.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="fade-out bg-[#36383e] text-[#eaeaeb]">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-[#36383e] bg-opacity-70 transition-colors duration-300">
+    <div class="flex items-center justify-between px-2 py-0">
+      <a href="index.html">
+        <img src="../assets/img/logo-transparant-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2">
+      </a>
+      <div class="space-x-8 text-white uppercase text-base px-4">
+        <a href="../index.html" class="hover:text-gray-300">Home</a>
+        <a href="../services.html" class="hover:text-gray-300">Services</a>
+        <a href="../projects.html" class="hover:text-gray-300">Recent Projects</a>
+        <a href="../about.html" class="hover:text-gray-300">About Us</a>
+        <a href="../contact.html" class="hover:text-gray-300">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+<!-- Top Hero Section for Project Page -->
+<section class="relative h-screen bg-[#36383e] flex items-center justify-center px-8">
+    <div class="flex items-center justify-between w-full max-w-7xl">
+  
+      <!-- Text Content -->
+      <div class="z-20 ml-[6rem]">
+        <p class="text-sm text-[#eaeaeb] mb-2">Our Work</p>
+        <h1 class="text-5xl font-bold text-[#eaeaeb]">Project No. 1465</h1>
+      </div>
+  
+    <!-- Image Container -->
+    <div class="relative w-[40rem] h-[28rem] translate-x-[-60px]">
+
+        <!-- Back Rectangle -->
+        <div class="absolute bg-[#9b9c9e] z-0"
+            style="top: 50%; left: 52%; width: 115%; height: 85%; transform: translate(-50%, -50%);">
+        </div>
+    
+        <!-- Main Image -->
+        <img src="assets/img/out-projects-page/project-card-1.jpg"
+            alt="Project Image"
+            class="relative w-full h-full object-cover z-10" />
+    </div>
+  
+    </div>
+  </section>
+
+  <!-- Project Info Grid -->
+  <section class="px-6 md:px-16 pb-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto text-sm">
+      <div>
+        <p class="text-gray-400 mb-1">Property Type</p>
+        <p>Semi-Detached</p>
+      </div>
+      <div>
+        <p class="text-gray-400 mb-1">Property Age</p>
+        <p>1870</p>
+      </div>
+      <div>
+        <p class="text-gray-400 mb-1">Project Type</p>
+        <ul class="space-y-1">
+          <li>Architectural</li>
+          <li>Bathroom</li>
+          <li>Extension</li>
+          <li>Interiors</li>
+          <li>Kitchen</li>
+          <li>Refurbishment</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-gray-400 mb-1">Location</p>
+        <p>Westbury Park, Bristol</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brief Section -->
+  <section class="mt-32 px-6 md:px-16 pb-32 text-left max-w-4xl mx-auto">
+    <p class="text-sm text-gray-400 mb-2">The Brief</p>
+    <h2 class="text-3xl md:text-4xl font-semibold mb-6">3 storey house, Onegin Park</h2>
+    <p class="text-base leading-relaxed">
+      Our clients approached us for a comprehensive renovation of their three-storey home, including the design and
+      construction of a single-storey side extension. Excited by the opportunity, we worked closely with the clients to
+      bring their vision to life, with planning permission carefully prepared and submitted by our in-house architects.
+    </p>
+  </section>
+
+  <script src="js/navbar-scroll.js"></script>
+  <script src="js/page-fade.js"></script>
+
+</body>
+
+</html>

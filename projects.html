@@ -67,140 +67,113 @@
 
     <!-- Front Info Box -->
     <div class="absolute bottom-[-1rem] right-[-1rem] w-[22rem] h-[20rem] bg-[#36383e] text-[#eaeaeb] p-6 z-10 shadow-lg">
-      <h3 class="text-xl font-semibold mb-4">Project No. 1465</h3>
+      <a href="project-1465.html">
+        <h3 class="text-xl font-semibold mb-4 hover:underline">
+          Project No. 1465
+        </h3>
+      </a>
       <div class="text-sm">
         <p class="mb-2"><span class="text-gray-400">Project Type</span><br>
           Architectural<br>Bathroom<br>Extension<br>Interiors<br>Kitchen<br>Refurbishment
         </p>
         <p><span class="text-gray-400">Location</span><br>
-          Westbury Park, Bristol
+          Onegin Park, Saint-Petersburg
         </p>
       </div>
     </div>
   </div>
 </section>
-
-<section class="h-screen flex items-center justify-center bg-[#eaeaeb]">
-  <div class="flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 gap-0 md:gap-4 opacity-0 translate-y-8 project-card">
-
-    <!-- Project Image -->
-    <div class="w-full md:w-1/2">
-      <img src="assets/img/out-projects-page/project-card-1.jpg" alt="Project 1" class="object-cover w-full h-full">
+  
+<!-- Second version of galleries version: Project Card -->
+<section id="projects" class="bg-[#eaeaeb] py-16 px-4">
+  <div class="max-w-7xl mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
+    
+    <!-- Card Wrapper for Project No. 1424 -->
+    <div class="p-6">
+      <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
+        <div class="relative h-64 overflow-hidden">
+          <img id="project-img-1" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/46-Leningradskaya-st/bathroom.jpeg" alt="Project Image">
+          <button onclick="prevImage(1)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
+          <button onclick="nextImage(1)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
+        </div>
+        <div class="p-6 bg-gray-800 text-left">
+          <h3 class="text-2xl font-custom mb-4">Project No. 1424</h3>
+          <div class="flex justify-between text-sm font-light">
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Project Type</p>
+              <p>Architectural</p>
+              <p>Bathroom</p>
+              <p>Interiors</p>
+              <p>Kitchen</p>
+              <p>Refurbishment</p>
+            </div>
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Location</p>
+              <p>Horfield</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Info Card -->
-    <div class="w-full md:w-1/2 bg-[#36383e] text-[#eaeaeb] p-10 flex flex-col justify-center">
-      <h3 class="text-2xl font-semibold mb-4">Project No. 1465</h3>
-      <div class="mb-6">
-        <p class="text-sm text-gray-400">Project Type</p>
-        <ul class="list-none space-y-1">
-          <li>Architectural</li>
-          <li>Bathroom</li>
-          <li>Extension</li>
-          <li>Interiors</li>
-          <li>Kitchen</li>
-          <li>Refurbishment</li>
-        </ul>
+    <!-- Card Wrapper for Project No. 1333 -->
+    <div class="p-6">
+      <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
+        <div class="relative h-64 overflow-hidden">
+          <img id="project-img-2" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/Malaya-st/bathroom.jpg" alt="Project Image">
+          <button onclick="prevImage(2)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
+          <button onclick="nextImage(2)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
+        </div>
+        <div class="p-6 bg-gray-800 text-left">
+          <h3 class="text-2xl font-custom mb-4">Project No. 1333</h3>
+          <div class="flex justify-between text-sm font-light">
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Project Type</p>
+              <p>Architectural</p>
+              <p>Bathroom</p>
+              <p>Interiors</p>
+              <p>Kitchen</p>
+              <p>Refurbishment</p>
+            </div>
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Location</p>
+              <p>Horfield</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <p class="text-sm text-gray-400">Location</p>
-        <p>Westbury Park, Bristol</p>
+    </div>
+
+    <!-- Card Wrapper for Project No. 1373 -->
+    <div class="p-6">
+      <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
+        <div class="relative h-64 overflow-hidden">
+          <img id="project-img-3" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/Srednerogatskaya-st/livingroom.jpg" alt="Project Image">
+          <button onclick="prevImage(3)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
+          <button onclick="nextImage(3)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
+        </div>
+        <div class="p-6 bg-gray-800 text-left">
+          <h3 class="text-2xl font-custom mb-4">Project No. 1373</h3>
+          <div class="flex justify-between text-sm font-light">
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Project Type</p>
+              <p>Architectural</p>
+              <p>Bathroom</p>
+              <p>Interiors</p>
+              <p>Kitchen</p>
+              <p>Refurbishment</p>
+            </div>
+            <div>
+              <p class="text-orange-400 font-semibold mb-1">Location</p>
+              <p>Horfield</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
-  
-  <!-- Second version of galleries version: Project Card -->
-  <section id="projects" class="bg-[#eaeaeb] py-16 px-4">
-    <div class="max-w-7xl mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
-      
-      <!-- Card Wrapper for Project No. 1424 -->
-      <div class="p-6">
-        <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
-          <div class="relative h-64 overflow-hidden">
-            <img id="project-img-1" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/46-Leningradskaya-st/bathroom.jpeg" alt="Project Image">
-            <button onclick="prevImage(1)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
-            <button onclick="nextImage(1)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
-          </div>
-          <div class="p-6 bg-gray-800 text-left">
-            <h3 class="text-2xl font-custom mb-4">Project No. 1424</h3>
-            <div class="flex justify-between text-sm font-light">
-              <div>
-                <p class="text-orange-400 font-semibold mb-1">Project Type</p>
-                <p>Architectural</p>
-                <p>Bathroom</p>
-                <p>Interiors</p>
-                <p>Kitchen</p>
-                <p>Refurbishment</p>
-              </div>
-              <div>
-                <p class="text-orange-400 font-semibold mb-1">Location</p>
-                <p>Horfield</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Card Wrapper for Project No. 1333 -->
-      <div class="p-6">
-        <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
-          <div class="relative h-64 overflow-hidden">
-            <img id="project-img-2" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/Malaya-st/bathroom.jpg" alt="Project Image">
-            <button onclick="prevImage(2)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
-            <button onclick="nextImage(2)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
-          </div>
-          <div class="p-6 bg-gray-800 text-left">
-            <h3 class="text-2xl font-custom mb-4">Project No. 1333</h3>
-            <div class="flex justify-between text-sm font-light">
-              <div>
-                <p class="text-orange-400 font-semibold mb-1">Project Type</p>
-                <p>Architectural</p>
-                <p>Bathroom</p>
-                <p>Interiors</p>
-                <p>Kitchen</p>
-                <p>Refurbishment</p>
-              </div>
-              <div>
-                <p class="text-orange-400 font-semibold mb-1">Location</p>
-                <p>Horfield</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Card Wrapper for Project No. 1373 -->
-      <div class="p-6">
-        <div class="bg-gray-900 text-white rounded overflow-hidden shadow-lg relative max-w-sm mx-auto">
-          <div class="relative h-64 overflow-hidden">
-            <img id="project-img-3" class="w-full h-full object-cover transition-all duration-500" src="assets/img/commercial/Srednerogatskaya-st/livingroom.jpg" alt="Project Image">
-            <button onclick="prevImage(3)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8592;</button>
-            <button onclick="nextImage(3)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white rounded-full p-2">&#8594;</button>
-          </div>
-          <div class="p-6 bg-gray-800 text-left">
-            <h3 class="text-2xl font-custom mb-4">Project No. 1373</h3>
-            <div class="flex justify-between text-sm font-light">
-              <div>
-                <p class="text-orange-400 font-semibold mb-1">Project Type</p>
-                <p>Architectural</p>
-                <p>Bathroom</p>
-                <p>Interiors</p>
-                <p>Kitchen</p>
-                <p>Refurbishment</p>
-              </div>
-              <div>
-                <p class="text-orange-400 font-semibold mb-1">Location</p>
-                <p>Horfield</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-    </div>
-  </section>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
