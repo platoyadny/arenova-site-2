@@ -14,29 +14,49 @@
         scroll-behavior: smooth;
         }
     </style>
+    <style>
+      /* The default transparent navbar (on hero) */
+      #navbar {
+        background-color: transparent;
+      }
+    
+      /* The inverse navbar when scrolled down */
+      .inverse {
+        background-color: #36383e !important; /* or use Tailwind class via JS if you prefer */
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
+    
+      .inverse #nav-links a {
+        color: #eaeaeb;
+      }
+    
+      .inverse #logo {
+        content: url('assets/img/logo-transparent-light-grey.png'); /* replace with your darker logo */
+      }
+    </style>
 </head>
 <body class="bg-black text-white fade-out">
 
-    <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-[#36383e] bg-opacity-70 transition-colors duration-300">
-        <div class="flex items-center justify-between px-2 py-0">
-            <!-- Logo -->
-            <a href="index.html">
-                <img src="assets/img/logo-transparant-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2">
-            </a>
-            <!-- Nav Links -->
-            <div class="space-x-8 text-white uppercase text-base px-4">
-                <a href="index.html" class="hover:text-gray-300">Home</a>
-                <a href="services.html" class="hover:text-gray-300">Services</a>
-                <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
-                <a href="about.html" class="hover:text-gray-300">About Us</a>
-                <a href="contact.html" class="hover:text-gray-300">Contact</a>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out">
+  <div class="flex items-center justify-between px-2 py-0">
+    <!-- Logo -->
+    <a href="index.html">
+      <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2 transition-all duration-500">
+    </a>
+    <!-- Nav Links -->
+    <div id="nav-links" class="space-x-8 text-[#36383e] uppercase text-base px-4 transition-colors duration-500">
+      <a href="index.html" class="hover:text-gray-300">Home</a>
+      <a href="services.html" class="hover:text-gray-300">Services</a>
+      <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
+      <a href="about.html" class="hover:text-gray-300">About Us</a>
+      <a href="contact.html" class="hover:text-gray-300">Contact</a>
+    </div>
+  </div>
+</nav>
 
 <!-- Projects Page Header with Animated Text -->
-<section class="bg-[#eaeaeb] h-screen flex flex-col items-center justify-center text-[#36383e] pt-32">
+<section class="hero bg-[#eaeaeb] h-screen flex flex-col items-center justify-center text-[#36383e] pt-32">
   <!-- Subheading -->
   <p id="projects-subheading" class="text-sm md:text-base mb-8 opacity-0 translate-y-8">
     Our Work
@@ -205,28 +225,6 @@
     });
   </script>
 
-  <!-- Script for the dynamic card animation -->
-  <!-- <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.utils.toArray(".project-card").forEach(card => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 80 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-    });
-  </script> -->
-
   <!-- GSAP Animation Script -->
 <script>
   gsap.registerPlugin(ScrollTrigger);
@@ -245,8 +243,34 @@
 </script>
 
   
+<!-- Script for the navbar ()-->
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
+  const hero = document.querySelector(".hero"); // Make sure hero has this class
 
-<script src="js/navbar-scroll.js"></script>
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Scroll up/down visibility
+    if (scrollTop > lastScrollTop) {
+      navbar.style.transform = "translateY(-100%)";
+    } else {
+      navbar.style.transform = "translateY(0)";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+    // Toggle inverse class when past hero section
+    const heroHeight = hero ? hero.offsetHeight : 200; // Fallback if no .hero
+    if (scrollTop > hero.offsetHeight * 0.15) {
+      navbar.classList.add("inverse");
+    } else {
+      navbar.classList.remove("inverse");
+    }
+  });
+</script>
+<!-- <script src="js/navbar-scroll.js"></script> -->
 <!-- <script src="js/before-after-gellary.js"></script> -->
 <script src="js/project-card-gallery.js"></script>
 <script src="js/page-fade.js"></script>
