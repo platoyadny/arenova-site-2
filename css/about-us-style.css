@@ -122,81 +122,92 @@ html {
     margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   }
 
-  /* Base pair layout: two columns, with one side “edge-near” image */
+  /* 2/3 of the viewport width, centered */
+  .section-intro {
+    display: flex;
+    justify-content: center;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .section-intro p {
+    width: 66.666vw;        /* 2/3 of the screen */
+    max-width: 1000px;
+    text-align: center;
+    color: #36383e;
+
+    /* Make it EXACTLY the same as other paragraphs */
+    font-size: 18px !important;
+    font-weight: 400;
+    line-height: 1.5;
+
+    margin: 0 auto;         /* keep it centered */
+  }
+
+  /* ====== Pairs: common container ====== */
   .pair {
-    /* 40vw image column to sit near edge, 1fr text column */
     display: grid;
     align-items: center;
-    gap: clamp(24px, 5vw, 64px);
-    margin: clamp(2rem, 5vw, 4rem) 0;
-    /* small side padding so images can sit close to the viewport edge */
-    padding: 0 clamp(12px, 3vw, 24px);
+    /* Exact, equal space between image and text */
+    gap: 40px;
+
+    /* Pull the whole pair off the screen edges and center it */
+    max-width: 1200px;          /* tune this if you want a wider/narrower band */
+    margin: clamp(40px, 6vw, 72px) auto;   /* vertical spacing + centered */
+    padding: 0 40px;            /* consistent side padding */
   }
 
-  /* Pair 1: text left, image right near edge */
-  .pair-1 {
-    grid-template-columns: 1fr 40vw;
-  }
-  .pair-1 .pair-img { 
-    justify-self: end; 
-    margin-right: clamp(8px, 2vw, 24px); /* how close to right edge */
-  }
+  /* Columns:
+    - pair-1: text left (flexible), image right (auto-sized by its max-width)
+    - pair-2: image left (auto), text right (flexible) */
+  .pair-1 { grid-template-columns: 1fr auto; }
+  .pair-2 { grid-template-columns: auto 1fr; }
 
-  /* Pair 2: image left near edge, text right */
-  .pair-2 {
-    grid-template-columns: 40vw 1fr;
-  }
-  .pair-2 .pair-img { 
-    justify-self: start; 
-    margin-left: clamp(8px, 2vw, 24px); /* how close to left edge */
-  }
-
-  /* Image sizing (vertical card feel) */
+  /* ====== Image box ======
+    Make images smaller and consistent, and pull them in from edges
+    by capping their width and letting the container padding handle edge distance. */
   .pair-img {
-    width: min(40vw, 520px);
-    aspect-ratio: 3 / 4;              /* consistent vertical shape */
-    overflow: hidden;                  /* neat edges if image is larger */
+    /* smaller than before: clamp keeps it responsive */
+    max-width: clamp(260px, 30vw, 420px);
+    aspect-ratio: 3 / 4;     /* nice vertical card look */
+    overflow: hidden;
   }
+
+  /* The img fills its box cleanly */
   .pair-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  /* Text column width for nice measure */
+  /* Remove previous “push to edge” nudges */
+  .pair-1 .pair-img,
+  .pair-2 .pair-img {
+    justify-self: center;     /* center within its column */
+    margin: 0;                /* no extra offsets */
+  }
+
+  /* ====== Text column ====== */
   .pair-text p {
-    max-width: 52ch;                  /* comfortable reading line length */
+    /* comfortable line length */
+    max-width: 52ch;
     width: 100%;
   }
 
-  /* Remove old “manual offsets” so they don’t fight the new layout */
-  .row { margin: 0; }                  /* not used anymore in pairs */
-  .row:nth-child(2) .img,
-  .row:nth-child(3) .img,
-  .row:nth-child(4) .img,
-  .row:nth-child(6) p { left: 0; }
-
-  /* Responsive stacking on narrow screens */
+  /* ====== Mobile: stack vertically ====== */
   @media (max-width: 900px) {
     .pair,
     .pair-1,
-    .pair-2 {
-      grid-template-columns: 1fr;     /* stack */
-    }
+    .pair-2 { grid-template-columns: 1fr; }
+
     .pair-img {
-      width: 88vw;                    /* nearly full width on mobile */
-      margin: 0 auto;
+      max-width: 88vw;
+      margin: 0 auto 16px;
     }
-    .pair-1 .pair-img,
-    .pair-2 .pair-img {
-      justify-self: center;
-      margin-left: 0;
-      margin-right: 0;
-    }
+
     .pair-text p {
       max-width: 65ch;
-      margin: 0 auto;
       padding: 0 4vw;
+      margin: 0 auto;
     }
   }
 
