@@ -56,63 +56,75 @@
 </nav>
 
 <!-- Projects Page Header with Animated Text -->
-<section class="hero bg-[#eaeaeb] h-screen flex flex-col items-center justify-center text-[#36383e] pt-32">
-  <!-- Subheading -->
-  <p id="projects-subheading" class="text-sm md:text-base mb-8 opacity-0 translate-y-8">
-    Our Work
-  </p>
+<section class="hero relative h-screen flex flex-col items-center justify-center text-[#36383e] pt-32 overflow-hidden">
 
-  <!-- Main Heading -->
-  <h1 id="project-title" class="text-3xl md:text-5xl font-semibold text-center max-w-4xl opacity-0 translate-y-8">
-    Extensions, interiors and<br>
-    wherever else your imagination<br>
-    takes you
-  </h1>
+  <!-- Blurred and faded background image layer -->
+  <div class="absolute inset-0 bg-[url('assets/img/our-projects-page/bg-hero.jpg')] bg-cover bg-center blur-lg opacity-99 shadow-xl"></div>
 
-  <!-- Buttons -->
-  <div id="projects-buttons" class="mt-32 flex space-x-4 opacity-0 translate-y-8">
-    <a href="#" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Commercial</a>
-    <a href="#" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Residential</a>
-  </div>
-</section>
+  <!-- Content Wrapper above the blur -->
+  <div class="relative z-10 text-center px-4">
+    <!-- Subheading -->
+    <p id="projects-subheading" class="text-sm md:text-base mb-8 opacity-0 translate-y-8">
+      Our Work
+    </p>
 
-<!-- Project Card Wrapper -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#eaeaeb]">
-  <!-- Back Grey Rectangle -->
-  <div class="absolute w-[85%] h-[85%] bg-[#9b9c9e] top-8 left-8 z-0"></div>
+    <!-- Main Heading -->
+    <h1 id="project-title" class="text-3xl md:text-5xl font-semibold max-w-4xl mx-auto opacity-0 translate-y-8 leading-snug">
+      Extensions, interiors and<br>
+      wherever else your imagination<br>
+      takes you
+    </h1>
 
-  <!-- Main Image -->
-  <div class="relative w-[85%] h-[85%] z-10 opacity-0 translate-y-12 project-card">
-    <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Photo" class="w-full h-full object-cover">
-
-    <!-- Front Info Box -->
-    <div class="absolute bottom-[-1rem] right-[-1rem] w-[22rem] h-[20rem] bg-[#36383e] text-[#eaeaeb] p-6 z-10 shadow-lg">
-      <a href="project-1465.html">
-        <h3 class="text-xl font-semibold mb-4 hover:underline">
-          Project No. 1465
-        </h3>
-      </a>
-      <div class="text-sm">
-        <p class="mb-2"><span class="text-gray-400">Project Type</span><br>
-          Architectural<br>Bathroom<br>Extension<br>Interiors<br>Kitchen<br>Refurbishment
-        </p>
-        <p><span class="text-gray-400">Location</span><br>
-          Onegin Park, Saint-Petersburg
-        </p>
-      </div>
+    <!-- Buttons -->
+    <div id="projects-buttons" class="mt-32 flex justify-center space-x-4 opacity-0 translate-y-8">
+      <a href="#commercial-projects" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Commercial</a>
+      <a href="#residential-projects" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Residential</a>
     </div>
   </div>
 </section>
 
-<!-- Projects Grid Section -->
-<section class="bg-[#eaeaeb] py-32 px-6 md:px-16">
+<!-- Residential Projects Section -->
+<section id="residential-projects" class="bg-[#eaeaeb] py-32 px-6 md:px-16">
+
+  <!-- Heading -->
+  <h2 class="text-4xl font-semibold text-center text-[#36383e] mb-8">Residential</h2>
+
+  <!-- Featured Project Card (Hero Style) -->
+  <div class="relative h-screen flex items-center justify-center overflow-hidden mb-32">
+    <!-- Back Grey Rectangle -->
+    <div class="absolute w-[85%] h-[85%] bg-[#9b9c9e] top-8 left-8 z-0"></div>
+
+    <!-- Main Image -->
+    <div class="relative w-[85%] h-[85%] z-10 opacity-0 translate-y-12 project-card">
+      <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Photo" class="w-full h-full object-cover">
+
+      <!-- Front Info Box -->
+      <div class="absolute bottom-[-1rem] right-[-1rem] w-[22rem] h-[20rem] bg-[#36383e] text-[#eaeaeb] p-6 z-10 shadow-lg">
+        <a href="project-1465.html">
+          <h3 class="text-xl font-semibold mb-4 hover:underline">
+            Project No. 1465
+          </h3>
+        </a>
+        <div class="text-sm">
+          <p class="mb-2"><span class="text-gray-400">Project Type</span><br>
+            Architectural<br>Bathroom<br>Extension<br>Interiors<br>Kitchen<br>Refurbishment
+          </p>
+          <p><span class="text-gray-400">Location</span><br>
+            Onegin Park, Saint-Petersburg
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Residential Projects Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
 
     <!-- Project Card 1 -->
     <div class="relative project-card opacity-0 translate-y-12">
       <div class="absolute w-full h-full bg-[#9b9c9e] top-4 left-4 z-0"></div>
       <div class="relative w-full h-[500px] z-10">
-        <img src="assets/img/our-projects-page/project-card-2.jpg" alt="Project Photo" class="w-full h-full object-cover">
+        <img src="assets/img/our-projects-page/project-card-3.jpeg" alt="Project Photo" class="w-full h-full object-cover">
         <div class="absolute bottom-[-0.5rem] right-[-0.5rem] w-[18rem] h-[16rem] bg-[#36383e] text-[#eaeaeb] p-4 z-10 shadow-lg">
           <a href="project-1399.html">
             <h3 class="text-xl font-semibold mb-4 hover:underline">
@@ -131,12 +143,11 @@
       </div>
     </div>
 
-    <!-- Duplicate the above card for additional projects -->
-    <!-- Example Project Card 2 (you can customize the data) -->
+    <!-- Project Card 2 -->
     <div class="relative project-card opacity-0 translate-y-12">
       <div class="absolute w-full h-full bg-[#9b9c9e] top-4 left-4 z-0"></div>
       <div class="relative w-full h-[500px] z-10">
-        <img src="assets/img/our-projects-page/project-card-3.jpg" alt="Project Photo" class="w-full h-full object-cover">
+        <img src="assets/img/residential/Parkovaya-st-2/main.jpg" alt="Project Photo" class="w-full h-full object-cover">
         <div class="absolute bottom-[-0.5rem] right-[-0.5rem] w-[18rem] h-[16rem] bg-[#36383e] text-[#eaeaeb] p-4 z-10 shadow-lg">
           <a href="project-1461.html">
             <h3 class="text-xl font-semibold mb-4 hover:underline">

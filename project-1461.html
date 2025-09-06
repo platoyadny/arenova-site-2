@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arenova site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tailwind.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    section {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body class="fade-out bg-[#36383e] text-[#eaeaeb]">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full bg-[#36383e] z-50 transition-transform duration-300 ease-in-out">
+    <div class="flex items-center justify-between px-2 py-0">
+      <!-- Logo -->
+      <a href="index.html">
+        <img id="logo" src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2">
+      </a>
+      <!-- Links -->
+      <div class="space-x-8 text-#eaeaeb uppercase text-base px-4">
+        <a href="index.html">Home</a>
+        <a href="services2.html">Services</a>
+        <a href="projects.html">Recent Projects</a>
+        <a href="about-2.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero + Info + Brief -->
+  <section class="panel section-hero bg-[#36383e] text-[#eaeaeb]">
+    <div class="scroll-wrapper h-full overflow-y-auto box-border pt-48 pb-32">
+        <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-8">
+            <div class="z-20 ml-[6rem]">
+                <p class="text-sm mb-2">Our Work</p>
+                <h1 class="text-5xl font-bold">Project No. 1461</h1>
+            </div>
+            <div class="relative w-[40rem] h-[28rem] translate-x-[-60px]">
+                <div class="absolute bg-[#9b9c9e] z-0" style="top: 50%; left: 52%; width: 115%; height: 85%; transform: translate(-50%, -50%);"></div>
+                <img src="assets/img/residential/Parkovaya-st-2/main.jpg" alt="Project Image" class="relative w-full h-full object-cover z-10" />
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto text-sm mt-32 px-6 md:px-16">
+        <div>
+            <p class="text-gray-400 mb-1">Property Type</p>
+            <p>Semi-Detached</p>
+        </div>
+        <div>
+            <p class="text-gray-400 mb-1">Property Age</p>
+            <p>1870</p>
+        </div>
+        <div>
+            <p class="text-gray-400 mb-1">Project Type</p>
+            <ul class="space-y-1">
+            <li>Architectural</li>
+            <li>Bathroom</li>
+            <li>Extension</li>
+            <li>Interiors</li>
+            <li>Kitchen</li>
+            <li>Refurbishment</li>
+            </ul>
+        </div>
+        <div>
+            <p class="text-gray-400 mb-1">Location</p>
+            <p>Westbury Park, Bristol</p>
+        </div>
+        </div>
+        <div class="mt-32 px-6 md:px-16 text-left max-w-4xl mx-auto">
+        <p class="text-sm text-gray-400 mb-2">The Brief</p>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-6">3 storey house, Onegin Park</h2>
+        <p class="text-base leading-relaxed">
+            Our clients approached us for a comprehensive renovation of their three-storey home, including the design and construction of a single-storey side extension. Excited by the opportunity, we worked closely with the clients to bring their vision to life.
+        </p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Section 2: New Section Reveal -->
+<section class="panel section-gallery bg-[#eaeaeb] text-[#36383e]">
+    <div class="scroll-wrapper h-full overflow-y-auto box-border">
+        <!-- Full-screen hero image -->
+        <div class="w-full h-screen">
+        <img src="assets/img/residential/Parkovaya-st-2/horisontal-1.jpg" alt="Kitchen Hero" class="w-full h-full object-cover" />
+        </div>
+    
+        <!-- "The Challenge" text block -->
+        <div class="max-w-2xl mx-auto px-6 py-24 mt-28 text-left">
+          <p class="text-base text-gray-400 mb-4">The Challenge</p>
+          <p class="text-lg leading-relaxed">
+              The primary objective of the side extension was to create an open-plan kitchen and dining area, establishing a vibrant central hub for the family. Given the proximity to neighbouring properties, maintaining privacy was a critical aspect of the design. Additionally, the project scope included the installation of a utility room, three new bathrooms, and the full renovation of the remaining spaces within the house.
+          </p>
+        </div>
+    
+        <!-- Image Grid Section -->
+        <div class="space-y-16 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 mt-28 mb-28">
+        
+          <!-- Full-width horizontal image -->
+          <div>
+              <img src="assets/img/residential/Parkovaya-st-2/horisontal-2.jpg" alt="Wide View" class="w-full shadow-md" />
+          </div>
+      
+          <!-- Two-column vertical images -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <img src="assets/img/residential/Parkovaya-st-2/pair-1-1.jpg" alt="Detail 1" class="w-full h-[700px] object-cover shadow-md" />
+              <img src="assets/img/residential/Parkovaya-st-2/pair-1-2.jpg" alt="Detail 2" class="w-full h-[700px] object-cover shadow-md" />
+          </div>
+      
+          <!-- Another wide image -->
+          <div>
+              <img src="assets/img/residential/Parkovaya-st-2/horisontal-3.jpg" alt="Wide View 2" class="w-full shadow-md" />
+          </div>
+      
+          <!-- Another pair -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <img src="assets/img/residential/Parkovaya-st-2/pair-2-1.jpg" alt="Detail 3" class="w-full h-[700px] object-cover shadow-md" />
+              <img src="assets/img/residential/Parkovaya-st-2/pair-2-2.jpg" alt="Detail 4" class="w-full h-[700px] object-cover shadow-md" />
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Script for scrolling animation: Section 2 scrolls up and layers over pinned Section 1 -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    const panels = gsap.utils.toArray(".panel");
+  
+    panels.forEach((panel, i) => {
+      if (i === panels.length - 1) return;
+  
+      const nextPanel = panels[i + 1];
+  
+      // Pin current panel as usual
+      ScrollTrigger.create({
+        trigger: panel,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        scrub: true,
+      });
+  
+      // Disable scroll interaction in Section 1 and Section 2 while transition is happening
+      ScrollTrigger.create({
+        trigger: nextPanel,
+        start: "top bottom", // When section 2 starts to appear
+        end: "top top",       // Until section 2 fully covers screen
+        onEnter: () => {
+          panel.style.overflow = "hidden";
+          panel.style.pointerEvents = "none";
+  
+          nextPanel.style.overflow = "hidden";
+          nextPanel.style.pointerEvents = "none";
+        },
+        onEnterBack: () => {
+          panel.style.overflow = "hidden";
+          panel.style.pointerEvents = "none";
+  
+          nextPanel.style.overflow = "hidden";
+          nextPanel.style.pointerEvents = "none";
+        },
+        onLeave: () => {
+          // Section 2 is now fully on screen — enable scroll
+          nextPanel.style.overflow = "auto";
+          nextPanel.style.pointerEvents = "auto";
+        },
+        onLeaveBack: () => {
+          // Section 2 is fully gone — restore section 1 scroll
+          panel.style.overflow = "auto";
+          panel.style.pointerEvents = "auto";
+        }
+      });
+    });
+  
+    // Fading out section-hero (Section 1 inner element)
+    gsap.to(".section-hero", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".section-gallery", // section 2
+        start: "top bottom",
+        end: "top top",
+        scrub: true
+      }
+    });
+  </script>
+
+  <!-- New Script for navbar-->
+  <script>
+    const navbar = document.getElementById("navbar");
+  
+    // Select all scrollable inner containers
+    const scrollWrappers = document.querySelectorAll(".scroll-wrapper");
+  
+    scrollWrappers.forEach(wrapper => {
+      let lastScrollTop = 0;
+  
+      wrapper.addEventListener("scroll", () => {
+        const currentScrollTop = wrapper.scrollTop;
+  
+        if (currentScrollTop > lastScrollTop) {
+          navbar.style.transform = "translateY(-100%)"; // Hide
+        } else {
+          navbar.style.transform = "translateY(0)"; // Show
+        }
+  
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+      });
+    });
+  </script>
+
+  <!-- <script src="js/navbar-scroll.js"></script> -->
+  <script src="js/page-fade.js"></script>
+</body>
+
+</html>
