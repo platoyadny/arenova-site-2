@@ -1,198 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arenova site</title>  
-    <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  
-    <link rel="stylesheet" href="tailwind.css">  <!-- correct path -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arenova site</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="tailwind.css" />
     <style>
       html {
         scroll-behavior: smooth;
       }
     </style>
     <style>
-      /* The default transparent navbar (on hero) */
       #navbar {
         background-color: transparent;
       }
-    
-      /* The inverse navbar when scrolled down */
       .inverse {
-        background-color: #36383e !important; 
+        background-color: #36383e !important;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
       }
-    
       .inverse #nav-links a {
         color: #eaeaeb;
       }
-    
       .inverse #logo {
-        content: url('assets/img/logo-transparent-light-grey.png'); 
+        content: url("assets/img/logo-transparent-light-grey.png");
       }
     </style>
   </head>
-  <body class="bg-black text-white fade-out">
-
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out">
-    <div class="flex items-center justify-between px-2 py-0">
-      <!-- Logo -->
-      <a href="index.html">
-        <img id="logo" src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2 transition-all duration-500">
-      </a>
-      <!-- Nav Links -->
-      <div id="nav-links" class="space-x-8 text-[#eaeaeb] uppercase text-base px-4 transition-colors duration-500">
-        <a href="index.html" class="hover:text-gray-300">Home</a>
-        <a href="services2.html" class="hover:text-gray-300">Services</a>
-        <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
-        <a href="about-2.html" class="hover:text-gray-300">About Us</a>
-        <a href="contact.html" class="hover:text-gray-300">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-
-<!-- Hero Section with Static Background Image and Overlay -->
-<section class="hero relative w-full h-screen bg-cover bg-center" style="background-image: url('assets/img/background.jpg');">
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
-
-  <!-- Centered Logo + Caption -->
-  <div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-white text-center px-6">
-    
-    <!-- Logo -->
-    <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="w-64 max-w-full mb-6">
-
-    <!-- Caption -->
-    <h1 class="text-3xl md:text-5xl font-bold leading-tight max-w-3xl">
-      Construction & Building Specialists in Saint-Petersburg and surrounding areas for over 15 years
-    </h1>
-  </div>
-</section>
-
-<!-- Advantages Section -->
-<section class="bg-[#eaeaeb] py-12">
-  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-    
-    <!-- Advantage Item -->
-    <div>
-      <img src="assets/img/icons/free-consultation.png" alt="Advantage 1" class="mx-auto w-20 h-20 mb-4">
-      <p class="text-[#36383e] font-semibold text-lg max-w-[10rem] mx-auto">Free, at home consultations</p>
-    </div>
-
-    <!-- Advantage Item -->
-    <div>
-      <img src="assets/img/icons/experience-no-bg.png" alt="Advantage 2" class="mx-auto w-20 h-20 mb-4">
-      <p class="text-[#36383e] font-semibold text-lg max-w-[10rem] mx-auto">15+ years experience</p>
-    </div>
-
-    <!-- Advantage Item -->
-    <div>
-      <img src="assets/img/icons/no-advance-payment.png" alt="Advantage 3" class="mx-auto w-20 h-20 mb-4">
-      <p class="text-[#36383e] font-semibold text-lg max-w-[10rem] mx-auto">Without advance payment</p>
-    </div>
-
-    <!-- Advantage Item -->
-    <div>
-      <img src="assets/img/icons/any-complexity.png" alt="Advantage 4" class="mx-auto w-20 h-20 mb-4">
-      <p class="text-[#36383e] font-semibold text-lg max-w-[10rem] mx-auto">Work of any complexity</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Describtion Section -->
-<section id="description-section" class="bg-[#eaeaeb] py-24 px-4 relative overflow-hidden">
-  <!-- Image Collage Background -->
-  <div class="absolute inset-0 z-0 pointer-events-none">
-    <!-- Image 1 (Bottom Left) -->
-    <img src="assets/img/background-for-describtion/bg-for-describtion-1.jpg"
-        alt=""
-        class="absolute w-[300px] top-16 left-16 opacity-50 blur-sm rotate-3 shadow-xl">
-
-    <!-- Image 2 (Middle Top, overlaps Image 1) -->
-    <img src="assets/img/background-for-describtion/bg-for-describtion-2.jpg"
-        alt=""
-        class="absolute w-[360px] top-8 left-32 opacity-40 blur-sm -rotate-2 shadow-xl">
-
-    <!-- Image 3 (Bottom Right) -->
-    <img src="assets/img/background-for-describtion/bg-for-describtion-3.jpg"
-        alt=""
-        class="absolute w-[320px] bottom-16 right-12 opacity-40 blur-[2px] rotate-1 shadow-xl">
-  </div>
-
-  <!-- Text Content -->
-  <div class="relative z-10 max-w-5xl mx-auto flex justify-center">
-    <div class="w-full md:w-1/2 text-[#36383e] text-left">
-      <!-- Title -->
-      <h2 id="desc-title" class="text-3xl md:text-4xl font-semibold mb-6 opacity-0 translate-y-8">
-        Why Arenova?
-      </h2>
-
-      <!-- Description Paragraphs -->
-      <p id="desc-line-1" class="text-base md:text-lg leading-relaxed mb-4 opacity-0 translate-y-8">
-        Design and build all under one roof.
-      </p>
-      <p id="desc-line-2" class="text-base md:text-lg leading-relaxed mb-4 opacity-0 translate-y-8">
-        We are a true design and build company with a dedicated in-house architecture, construction team and kitchen showroom all based out of our design studio and showroom space, working together from the start of project to ensure a consistent approach which drives certainty on your project.
-      </p>
-      <p id="desc-line-3" class="text-base md:text-lg leading-relaxed mb-6 opacity-0 translate-y-8">
-        Our key focus is to provide you with time and cost certainty alongside a collaborative design process.
-      </p>
-
-      <!-- Button -->
-      <div id="desc-button" class="opacity-0 translate-y-8">
-        <a href="about.html" class="inline-block border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">
-          → Find Out More
+  <body class="bg-black text-white fade-out font-custom">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out">
+      <div class="flex items-center justify-between px-4 py-3">
+        <!-- Logo -->
+        <a href="index.html">
+          <img
+            id="logo"
+            src="assets/img/logo-transparent-light-grey.png"
+            alt="Renova Logo"
+            class="h-12 sm:h-16 w-auto transition-all duration-500"
+          />
         </a>
+        <!-- Nav Links -->
+        <div
+          id="nav-links"
+          class="hidden sm:flex space-x-4 md:space-x-8 text-[#eaeaeb] uppercase text-sm md:text-base px-2"
+        >
+          <a href="index.html" class="hover:text-gray-300">Home</a>
+          <a href="services2.html" class="hover:text-gray-300">Services</a>
+          <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
+          <a href="about-2.html" class="hover:text-gray-300">About Us</a>
+          <a href="contact.html" class="hover:text-gray-300">Contact</a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
-<!-- Rights and athorities -->
-<footer class="bg-[#36383e] text-white py-8 text-center">
-  <p class="text-sm">© 2025 Arenova. All rights reserved.</p>
-</footer>
+    <!-- Hero Section -->
+    <section
+      class="hero relative w-full h-screen bg-cover bg-center"
+      style="background-image: url('assets/img/background.jpg');"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+      <div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-white text-center px-6">
+        <img
+          src="assets/img/logo-transparent-light-grey.png"
+          alt="Renova Logo"
+          class="w-48 sm:w-64 max-w-full mb-6"
+        />
+        <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold leading-snug sm:leading-tight max-w-xl md:max-w-3xl">
+          Construction & Building Specialists in Saint-Petersburg and surrounding areas for over 15 years
+        </h1>
+      </div>
+    </section>
 
-<!-- Script for the navbar -->
-<script>
-  let lastScrollTop = 0;
-  const navbar = document.getElementById("navbar");
-  const hero = document.querySelector(".hero"); // Make sure hero has this class
+    <!-- Advantages Section -->
+    <section class="bg-[#eaeaeb] py-12">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <!-- Advantage Items -->
+        <div>
+          <img src="assets/img/icons/free-consultation.png" alt="Advantage 1" class="mx-auto w-16 h-16 sm:w-20 sm:h-20 mb-4" />
+          <p class="text-[#36383e] font-semibold text-base sm:text-lg max-w-[10rem] mx-auto">
+            Free, at home consultations
+          </p>
+        </div>
+        <div>
+          <img src="assets/img/icons/experience-no-bg.png" alt="Advantage 2" class="mx-auto w-16 h-16 sm:w-20 sm:h-20 mb-4" />
+          <p class="text-[#36383e] font-semibold text-base sm:text-lg max-w-[10rem] mx-auto">15+ years experience</p>
+        </div>
+        <div>
+          <img src="assets/img/icons/no-advance-payment.png" alt="Advantage 3" class="mx-auto w-16 h-16 sm:w-20 sm:h-20 mb-4" />
+          <p class="text-[#36383e] font-semibold text-base sm:text-lg max-w-[10rem] mx-auto">Without advance payment</p>
+        </div>
+        <div>
+          <img src="assets/img/icons/any-complexity.png" alt="Advantage 4" class="mx-auto w-16 h-16 sm:w-20 sm:h-20 mb-4" />
+          <p class="text-[#36383e] font-semibold text-base sm:text-lg max-w-[10rem] mx-auto">Work of any complexity</p>
+        </div>
+      </div>
+    </section>
 
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    <!-- Description Section -->
+    <section id="description-section" class="bg-[#eaeaeb] py-16 sm:py-24 px-4 relative overflow-hidden">
+      <!-- Background Image Collage -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="assets/img/background-for-describtion/bg-for-describtion-1.jpg"
+          alt=""
+          class="absolute w-48 sm:w-[300px] top-10 sm:top-16 left-10 sm:left-16 opacity-50 blur-sm rotate-3 shadow-xl"
+        />
+        <img
+          src="assets/img/background-for-describtion/bg-for-describtion-2.jpg"
+          alt=""
+          class="absolute w-52 sm:w-[360px] top-4 sm:top-8 left-16 sm:left-32 opacity-40 blur-sm -rotate-2 shadow-xl"
+        />
+        <img
+          src="assets/img/background-for-describtion/bg-for-describtion-3.jpg"
+          alt=""
+          class="absolute w-48 sm:w-[320px] bottom-10 sm:bottom-16 right-8 sm:right-12 opacity-40 blur-[2px] rotate-1 shadow-xl"
+        />
+      </div>
+      <!-- Text Content -->
+      <div class="relative z-10 max-w-5xl mx-auto flex justify-center">
+        <div class="w-full md:w-1/2 text-[#36383e] text-left">
+          <h2 id="desc-title" class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 opacity-0 translate-y-8">
+            Why Arenova?
+          </h2>
+          <p id="desc-line-1" class="text-sm sm:text-base md:text-lg leading-relaxed mb-4 opacity-0 translate-y-8">
+            Design and build all under one roof.
+          </p>
+          <p id="desc-line-2" class="text-sm sm:text-base md:text-lg leading-relaxed mb-4 opacity-0 translate-y-8">
+            We are a true design and build company with a dedicated in-house architecture, construction team and
+            kitchen showroom all based out of our design studio and showroom space, working together from the start
+            of project to ensure a consistent approach which drives certainty on your project.
+          </p>
+          <p id="desc-line-3" class="text-sm sm:text-base md:text-lg leading-relaxed mb-6 opacity-0 translate-y-8">
+            Our key focus is to provide you with time and cost certainty alongside a collaborative design process.
+          </p>
+          <div id="desc-button" class="opacity-0 translate-y-8">
+            <a
+              href="about.html"
+              class="inline-block border border-[#36383e] text-[#36383e] px-5 py-2 rounded text-sm sm:text-base hover:bg-[#dcdcdc] hover:text-black transition"
+            >
+              → Find Out More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    // Scroll up/down visibility
-    if (scrollTop > lastScrollTop) {
-      navbar.style.transform = "translateY(-100%)";
-    } else {
-      navbar.style.transform = "translateY(0)";
-    }
+    <!-- Footer -->
+    <footer class="bg-[#36383e] text-white py-6 sm:py-8 text-center">
+      <p class="text-xs sm:text-sm">© 2025 Arenova. All rights reserved.</p>
+    </footer>
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    <!-- Scripts -->
+    <script>
+      let lastScrollTop = 0;
+      const navbar = document.getElementById("navbar");
+      const hero = document.querySelector(".hero");
 
-    // Toggle inverse class when past hero section
-    const heroHeight = hero ? hero.offsetHeight : 200; // Fallback if no .hero
-    if (scrollTop > hero.offsetHeight * 0.15) {
-      navbar.classList.add("inverse");
-    } else {
-      navbar.classList.remove("inverse");
-    }
-  });
-</script>
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        navbar.style.transform = scrollTop > lastScrollTop ? "translateY(-100%)" : "translateY(0)";
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-<script src="js/page-fade.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-
-<script src="js/text-anim-index-describtion.js"></script>
-
-
-</body>
+        const heroHeight = hero ? hero.offsetHeight : 200;
+        if (scrollTop > heroHeight * 0.15) {
+          navbar.classList.add("inverse");
+        } else {
+          navbar.classList.remove("inverse");
+        }
+      });
+    </script>
+    <script src="js/page-fade.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="js/text-anim-index-describtion.js"></script>
+  </body>
 </html>
