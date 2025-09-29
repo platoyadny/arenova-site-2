@@ -47,9 +47,12 @@
       </a>
 
       <!-- Burger Icon (mobile only) -->
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
+        <svg data-menu-icon class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg data-close-icon class="w-8 h-8 hidden text-[#36383e]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/>
         </svg>
       </button>
 
@@ -65,12 +68,6 @@
 
     <!-- Fullscreen Overlay Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-[#36383e] hidden flex-col justify-center items-center z-40">
-      
-      <!-- Close Button -->
-      <button id="close-menu-btn" class="absolute top-4 right-6 text-3xl font-thin text-black">
-        &times;
-      </button>
-
       <!-- Centered Logo -->
       <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
 
@@ -83,10 +80,6 @@
         <a href="contact.html" class="hover:text-gray-600">Contact</a>
       </nav>
 
-      <!-- CTA Button -->
-      <a href="contact.html" class="mt-12 px-6 py-3 border border-[#36383e] text-[#36383e] rounded hover:bg-[#dcdcdc] transition">
-        → Start A Project
-      </a>
     </div>
   </nav>
 
@@ -198,41 +191,74 @@
   <script>
     let lastScrollTop = 0;
     const navbar = document.getElementById("navbar");
-    const hero = document.querySelector(".hero"); // Make sure hero has this class
+    const hero = document.querySelector(".hero");
+    let menuOpen = false;
 
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      // Scroll up/down visibility
-      if (scrollTop > lastScrollTop) {
+      if (menuOpen) {
+        navbar.style.transform = '';
+      } else if (scrollTop > lastScrollTop) {
         navbar.style.transform = "translateY(-100%)";
       } else {
-        navbar.style.transform = "translateY(0)";
+        navbar.style.transform = '';
       }
 
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-      // Toggle inverse class when past hero section
-      const heroHeight = hero ? hero.offsetHeight : 200; // Fallback if no .hero
-      if (scrollTop > hero.offsetHeight * 0.15) {
-        navbar.classList.add("inverse");
-      } else {
-        navbar.classList.remove("inverse");
+      if (hero) {
+        const heroHeight = hero.offsetHeight;
+        if (scrollTop > heroHeight * 0.15) {
+          navbar.classList.add("inverse");
+        } else {
+          navbar.classList.remove("inverse");
+        }
       }
-    });
+
+      if (!hero) {
+        navbar.classList.add("inverse");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
   </script>
   <!-- For mobile -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const closeBtn = document.getElementById('close-menu-btn');
+    const openIcon = menuBtn.querySelector('[data-menu-icon]');
+    const closeIcon = menuBtn.querySelector('[data-close-icon]');
+    const menuLinks = mobileMenu.querySelectorAll('a');
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
+    const toggleMenu = () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      const isOpen = !isHidden;
+
+      menuOpen = isOpen;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+      openIcon.classList.toggle('hidden', isOpen);
+      closeIcon.classList.toggle('hidden', !isOpen);
+      document.body.classList.toggle('overflow-hidden', isOpen);
+
+      handleScroll();
+    };
+
+    menuBtn.addEventListener('click', toggleMenu);
+
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (!mobileMenu.classList.contains('hidden')) {
+          toggleMenu();
+        }
+      });
     });
 
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
     });
   </script>
 

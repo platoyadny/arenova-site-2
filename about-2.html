@@ -24,30 +24,59 @@
         
           /* The inverse navbar when scrolled down */
           .inverse {
-            background-color: #36383e !important; 
+            background-color: #eaeaeb !important; 
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
           }
         
           .inverse #nav-links a {
-            color: #eaeaeb;
+            color: #36383e;
+          }
+
+          /* Burger icon = dark by default, still dark when inverse */
+          #navbar [data-menu-icon],
+          #navbar [data-menu-icon] path {
+            stroke: #36383e;
+          }
+          #navbar.inverse [data-menu-icon],
+          #navbar.inverse [data-menu-icon] path {
+            stroke: #36383e;
+          }
+
+          /* Close icon = keep dark (overlay menu has a light background) */
+          #navbar [data-close-icon],
+          #navbar [data-close-icon] path {
+            stroke: #36383e;
           }
         
           .inverse #logo {
-            content: url('assets/img/logo-transparent-light-grey.png'); 
+            content: url('assets/img/logo-transparent-grey.png'); 
           }
         </style>
     </head>
     
     <body class="bg-black text-white fade-out"> <!-- Attention: You set the <body> to bg‑black. That color is the bottom-most layer. If am clipping the element that has the background, so outside the polygon you’re seeing the body’s black background.-->        
       <!-- Navbar -->
-      <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out">
-        <div class="flex items-center justify-between px-2 py-0">
+      <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
+        <div class="flex items-center justify-between px-4 py-3">
           <!-- Logo -->
           <a href="index.html">
-            <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2 transition-all duration-500">
+            <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
           </a>
-          <!-- Nav Links -->
-          <div id="nav-links" class="space-x-8 text-[#36383e] uppercase text-base px-4 transition-colors duration-500">
+
+          <!-- Burger Icon (mobile only) -->
+          <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
+            <!-- Burger -->
+            <svg data-menu-icon class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <!-- Close -->
+            <svg data-close-icon class="w-8 h-8 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>
+            </svg>
+          </button>
+
+          <!-- Navigation Links (desktop) -->
+          <div id="nav-links" class="hidden md:flex space-x-8 text-[#36383e] uppercase text-base transition-colors duration-500">
             <a href="index.html" class="hover:text-gray-300">Home</a>
             <a href="services2.html" class="hover:text-gray-300">Services</a>
             <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
@@ -55,8 +84,23 @@
             <a href="contact.html" class="hover:text-gray-300">Contact</a>
           </div>
         </div>
-      </nav>
 
+        <!-- Fullscreen Overlay Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-[#36383e] hidden flex-col justify-center items-center z-40">
+          <!-- Centered Logo -->
+          <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
+
+          <!-- Vertical Links -->
+          <nav class="flex flex-col items-center space-y-6 text-xl font-medium uppercase">
+            <a href="index.html" class="hover:text-gray-600">Home</a>
+            <a href="services2.html" class="hover:text-gray-600">Services</a>
+            <a href="projects.html" class="hover:text-gray-600">Recent Projects</a>
+            <a href="about-2.html" class="hover:text-gray-600">About Us</a>
+            <a href="contact.html" class="hover:text-gray-600">Contact</a>
+          </nav>
+        </div>
+      </nav>
+        
         <div class="header">
         <div class="letters">
             <div>a</div><div>b</div><div>o</div><div>u</div>
@@ -76,7 +120,7 @@
           </div>
 
           <!-- Intro paragraph under the title -->
-          <div class="section-intro">
+          <div class="section-intro text-left">
             <p>
               Founded in 2010, Arenova grew from a small craft team into a full design‑and‑build
               company. We combine architectural thinking, precise construction, and a hands‑on
@@ -84,36 +128,9 @@
               the surrounding areas.
             </p>
           </div>
-
-          <!-- Pair 1: text left, image right -->
-          <section class="pair pair-1">
-            <div class="pair-text">
-              <p>
-                In the age of knights and castles, master sculptors skillfully
-                carved stones and marbles with great artistry. From mountains and
-                forests, the raw materials arose to be shaped according to their
-                vision (Volody, there will be a photo of DT here).
-              </p>
+            <div class="mt-80 flex justify-center">
+              <img src="assets/img/icons/End.png" alt="End Icon" class="w-1/5 md:w-1/12">
             </div>
-            <figure class="pair-img">
-              <img src="assets/img/about-us-page/img-1.jpg" alt="Historic image 1" />
-            </figure>
-          </section>
-
-          <!-- Pair 2: image left, text right -->
-          <section class="pair pair-2">
-            <figure class="pair-img">
-              <img src="assets/img/about-us-page/img-2.jpg" alt="Historic image 2" />
-            </figure>
-            <div class="pair-text">
-              <p>
-                These artisans, wielding hammers and chisels, brought to life the
-                mysteries of faith and ancient tales in stone. Every stroke, with
-                precision and reverence, narrated stories of virtues, triumphs, and
-                sometimes tragic human tales (Nasty, simmilarly here will be a photo of his partner).
-              </p>
-            </div>
-          </section>
         </div>
         </div>
 
@@ -128,12 +145,14 @@
         <script>
           gsap.registerPlugin(ScrollTrigger);
           document.addEventListener("DOMContentLoaded", function() {
-            const contentHolderHeight = document.querySelector('.content-holder').offsetHeight;
-            const imgHolderHeight = window.innerHeight;
-            const additionalScrollHeight = window.innerHeight;
-    
-            const totalBodyHeight = contentHolderHeight + imgHolderHeight + additionalScrollHeight;
-            document.body.style.height = `${totalBodyHeight}px`;
+            if (window.innerWidth >= 768) {
+              const contentHolderHeight = document.querySelector('.content-holder').offsetHeight;
+              const imgHolderHeight = window.innerHeight;
+              const additionalScrollHeight = window.innerHeight;
+
+              const totalBodyHeight = contentHolderHeight + imgHolderHeight + additionalScrollHeight;
+              document.body.style.height = `${totalBodyHeight}px`;
+            }
           });
     
           const endValue = document.querySelector('.website-content').offsetHeight * 0.75;
@@ -156,7 +175,7 @@
               ease: "power2.inOut",
               scrollTrigger: {
                   start: "top top",
-                  end: `+=200%`,
+                  end: () => window.innerWidth < 768 ? "+=100%" : "+=200%",
                   scrub: 1,
               }
           });
@@ -167,7 +186,7 @@
               ease: "power2.inOut",
               scrollTrigger: {
                   start: "top top",
-                  end: `+=200%`,
+                  end: () => window.innerWidth < 768 ? "+=100%" : "+=200%",
                   scrub: 1,
               }
           });
@@ -178,7 +197,7 @@
               ease: "power2.inOut",
               scrollTrigger: {
                   start: "top top",
-                  end: "+=200%",
+                  end: () => window.innerWidth < 768 ? "+=100%" : "+=200%",
                   scrub: 1
               }
           });
@@ -189,7 +208,7 @@
               ease: "power2.inOut",
               scrollTrigger: {
                   start: "top top",
-                  end: "+=200%",
+                  end: () => window.innerWidth < 768 ? "+=100%" : "+=200%",
                   scrub: 1
               }
           });
@@ -198,36 +217,78 @@
 
         <!-- Script for the navbar -->
         <script>
-          // Same behavior as on other pages
+          let lastScrollTop = 0;
           const navbar = document.getElementById("navbar");
+          const hero = document.querySelector(".header"); // instead of .hero
+          let menuOpen = false;
 
-          const heroEl = document.querySelector(".img-holder") || document.querySelector(".img-holder");
+          const handleScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-          let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-          function handleScroll() {
-            const y = window.pageYOffset || document.documentElement.scrollTop;
-
-            // Hide on scroll down, show on scroll up (with a small dead zone)
-            if (y > lastScrollTop + 2) {
+            if (menuOpen) {
+              navbar.style.transform = '';
+            } else if (scrollTop > lastScrollTop) {
               navbar.style.transform = "translateY(-100%)";
-            } else if (y < lastScrollTop - 2 || y < 40) {
-              navbar.style.transform = "translateY(0)";
-            }
-            lastScrollTop = y <= 0 ? 0 : y;
-
-            // Inverse after ~15% of hero height
-            const heroHeight = heroEl ? heroEl.offsetHeight : 200;
-            if (y > heroHeight * 0.15) {
-              navbar.classList.add("inverse");
             } else {
-              navbar.classList.remove("inverse");
+              navbar.style.transform = '';
             }
-          }
 
-          // Run once on load and then on scroll
-          window.addEventListener("load", handleScroll);
-          window.addEventListener("scroll", handleScroll, { passive: true });
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+            if (hero) {
+              const heroHeight = hero.offsetHeight;
+              if (scrollTop > heroHeight * 0.15) {
+                navbar.classList.add("inverse");
+              } else {
+                navbar.classList.remove("inverse");
+              }
+            }
+
+            if (!hero) {
+              navbar.classList.add("inverse");
+            }
+          };
+
+          window.addEventListener("scroll", handleScroll);
+          handleScroll();
         </script>
+        <!-- For mobile -->
+        <script>
+          const menuBtn = document.getElementById('menu-btn');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const openIcon = menuBtn.querySelector('[data-menu-icon]');
+          const closeIcon = menuBtn.querySelector('[data-close-icon]');
+          const menuLinks = mobileMenu.querySelectorAll('a');
+
+          const toggleMenu = () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            const isOpen = !isHidden;
+
+            menuOpen = isOpen;
+            menuBtn.setAttribute('aria-expanded', isOpen);
+            openIcon.classList.toggle('hidden', isOpen);
+            closeIcon.classList.toggle('hidden', !isOpen);
+            document.body.classList.toggle('overflow-hidden', isOpen);
+
+            handleScroll();
+          };
+
+          menuBtn.addEventListener('click', toggleMenu);
+
+          menuLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+              if (!mobileMenu.classList.contains('hidden')) {
+                toggleMenu();
+              }
+            });
+          });
+
+          document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+              toggleMenu();
+            }
+          });
+        </script>
+      
     </body>
 </html>

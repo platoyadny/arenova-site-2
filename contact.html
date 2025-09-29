@@ -30,18 +30,40 @@
 </head>
 <body class="bg-black text-[#36383e] fade-out">
   <div class="bg-[#eaeaeb] min-h-screen">
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out">
-      <div class="flex items-center justify-between px-2 py-0">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
+      <div class="flex items-center justify-between px-4 py-3">
         <a href="index.html">
-          <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2 transition-all duration-500">
+          <img id="logo" src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
         </a>
-        <div id="nav-links" class="space-x-8 text-[#36383e] uppercase text-base px-4 transition-colors duration-500">
+
+        <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
+          <svg data-menu-icon class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg data-close-icon class="w-8 h-8 hidden text-[#36383e]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/>
+          </svg>
+        </button>
+
+        <div id="nav-links" class="hidden md:flex space-x-8 text-[#eaeaeb] uppercase text-base transition-colors duration-500">
           <a href="index.html" class="hover:text-gray-300">Home</a>
           <a href="services2.html" class="hover:text-gray-300">Services</a>
           <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
           <a href="about-2.html" class="hover:text-gray-300">About Us</a>
           <a href="contact.html" class="hover:text-gray-300">Contact</a>
         </div>
+      </div>
+
+      <div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-[#36383e] hidden flex-col justify-center items-center z-40">
+        <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
+
+        <nav class="flex flex-col items-center space-y-6 text-xl font-medium uppercase">
+          <a href="index.html" class="hover:text-gray-600">Home</a>
+          <a href="services2.html" class="hover:text-gray-600">Services</a>
+          <a href="projects.html" class="hover:text-gray-600">Recent Projects</a>
+          <a href="about-2.html" class="hover:text-gray-600">About Us</a>
+          <a href="contact.html" class="hover:text-gray-600">Contact</a>
+        </nav>
       </div>
     </nav>
 
@@ -98,29 +120,78 @@
       </div>
     </section>
   </div>
-  <script src="js/navbar-scroll.js"></script>
   <script src="js/page-fade.js"></script>
+  <!-- Script for the navbar -->
   <script>
     let lastScrollTop = 0;
     const navbar = document.getElementById("navbar");
+    const hero = document.querySelector(".hero");
+    let menuOpen = false;
 
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      // Scroll up/down visibility
-      if (scrollTop > lastScrollTop) {
+      if (menuOpen) {
+        navbar.style.transform = '';
+      } else if (scrollTop > lastScrollTop) {
         navbar.style.transform = "translateY(-100%)";
       } else {
-        navbar.style.transform = "translateY(0)";
+        navbar.style.transform = '';
       }
 
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-      // Toggle inverse class
-      if (scrollTop > 100) {
+      if (hero) {
+        const heroHeight = hero.offsetHeight;
+        if (scrollTop > heroHeight * 0.15) {
+          navbar.classList.add("inverse");
+        } else {
+          navbar.classList.remove("inverse");
+        }
+      }
+
+      if (!hero) {
         navbar.classList.add("inverse");
-      } else {
-        navbar.classList.remove("inverse");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  </script>
+  <!-- For mobile -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = menuBtn.querySelector('[data-menu-icon]');
+    const closeIcon = menuBtn.querySelector('[data-close-icon]');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    const toggleMenu = () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      const isOpen = !isHidden;
+
+      menuOpen = isOpen;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+      openIcon.classList.toggle('hidden', isOpen);
+      closeIcon.classList.toggle('hidden', !isOpen);
+      document.body.classList.toggle('overflow-hidden', isOpen);
+
+      handleScroll();
+    };
+
+    menuBtn.addEventListener('click', toggleMenu);
+
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (!mobileMenu.classList.contains('hidden')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
       }
     });
   </script>

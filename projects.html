@@ -22,14 +22,30 @@
     
       /* The inverse navbar when scrolled down */
       .inverse {
-        background-color: #36383e !important; 
+        background-color: #36383e !important;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
       }
     
       .inverse #nav-links a {
         color: #eaeaeb;
       }
-    
+
+      /* Burger icon = dark by default, light when inverse */
+      #navbar [data-menu-icon],
+      #navbar [data-menu-icon] path {
+        stroke: #36383e;
+      }
+      #navbar.inverse [data-menu-icon],
+      #navbar.inverse [data-menu-icon] path {
+        stroke: #eaeaeb;
+      }
+
+      /* Close icon = keep dark (overlay menu has a light background) */
+      #navbar [data-close-icon],
+      #navbar [data-close-icon] path {
+        stroke: #36383e;
+      }
+
       .inverse #logo {
         content: url('assets/img/logo-transparent-light-grey.png'); 
       }
@@ -38,20 +54,48 @@
 <body class="bg-black text-white fade-out">
 
 <!-- Navbar -->
-<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out">
-  <div class="flex items-center justify-between px-2 py-0">
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
+  <div class="flex items-center justify-between px-4 py-3">
     <!-- Logo -->
     <a href="index.html">
-      <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-16 w-auto ml-2 transition-all duration-500">
+      <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
     </a>
-    <!-- Nav Links -->
-    <div id="nav-links" class="space-x-8 text-[#36383e] uppercase text-base px-4 transition-colors duration-500">
+
+    <!-- Burger Icon (mobile only) -->
+    <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
+      <!-- Burger -->
+      <svg data-menu-icon class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <!-- Close -->
+      <svg data-close-icon class="w-8 h-8 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>
+      </svg>
+    </button>
+
+    <!-- Navigation Links (desktop) -->
+    <div id="nav-links" class="hidden md:flex space-x-8 text-[#36383e] uppercase text-base transition-colors duration-500">
       <a href="index.html" class="hover:text-gray-300">Home</a>
       <a href="services2.html" class="hover:text-gray-300">Services</a>
       <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
       <a href="about-2.html" class="hover:text-gray-300">About Us</a>
       <a href="contact.html" class="hover:text-gray-300">Contact</a>
     </div>
+  </div>
+
+  <!-- Fullscreen Overlay Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-[#36383e] hidden flex-col justify-center items-center z-40">
+    <!-- Centered Logo -->
+    <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
+
+    <!-- Vertical Links -->
+    <nav class="flex flex-col items-center space-y-6 text-xl font-medium uppercase">
+      <a href="index.html" class="hover:text-gray-600">Home</a>
+      <a href="services2.html" class="hover:text-gray-600">Services</a>
+      <a href="projects.html" class="hover:text-gray-600">Recent Projects</a>
+      <a href="about-2.html" class="hover:text-gray-600">About Us</a>
+      <a href="contact.html" class="hover:text-gray-600">Contact</a>
+    </nav>
   </div>
 </nav>
 
@@ -62,7 +106,7 @@
   <div class="absolute inset-0 bg-[url('assets/img/our-projects-page/bg-hero.jpg')] bg-cover bg-center blur-lg opacity-99 shadow-xl"></div>
 
   <!-- Content Wrapper above the blur -->
-  <div class="relative z-10 text-center px-4">
+  <div class="relative z-10 text-center px-4 -mt-12">
     <!-- Subheading -->
     <p id="projects-subheading" class="text-sm md:text-base mb-8 opacity-0 translate-y-8">
       Our Work
@@ -75,41 +119,27 @@
       takes you
     </h1>
 
-    <!-- Buttons -->
-    <div id="projects-buttons" class="mt-32 flex justify-center space-x-4 opacity-0 translate-y-8">
-      <a href="#commercial-projects" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Commercial</a>
-      <a href="#residential-projects" class="border border-[#36383e] text-[#36383e] px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">Residential</a>
-    </div>
   </div>
 </section>
 
 <!-- Residential Projects Section -->
-<section id="residential-projects" class="bg-[#eaeaeb] py-32 px-6 md:px-16">
-
-  <!-- Heading -->
-  <h2 class="text-4xl font-semibold text-center text-[#36383e] mb-8">Residential</h2>
+<section id="residential-projects" class="bg-[#eaeaeb] py-24 md:py-32 px-12 md:px-24">
 
   <!-- Featured Project Card (Hero Style) -->
-  <div class="relative h-screen flex items-center justify-center overflow-hidden mb-32">
-    <!-- Back Grey Rectangle -->
-    <div class="absolute w-[85%] h-[85%] bg-[#9b9c9e] top-8 left-8 z-0"></div>
-
-    <!-- Main Image -->
-    <div class="relative w-[85%] h-[85%] z-10 opacity-0 translate-y-12 project-card">
-      <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Photo" class="w-full h-full object-cover">
-
-      <!-- Front Info Box -->
-      <div class="absolute bottom-[-1rem] right-[-1rem] w-[22rem] h-[20rem] bg-[#36383e] text-[#eaeaeb] p-6 z-10 shadow-lg">
+  <div class="project-card relative flex flex-col md:flex-row md:items-end gap-0 md:gap-8 mb-12 md:mb-20">
+    <div class="flex-1 overflow-hidden">
+      <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Photo" class="w-full h-60 md:h-[80vh] object-cover">
+    </div>
+    <div class="bg-[#36383e] text-[#eaeaeb] p-6 md:p-8 md:absolute md:bottom-0 md:right-0 md:w-[40%] flex flex-col justify-between">
+      <div>
         <a href="project-1465.html">
-          <h3 class="text-xl font-semibold mb-4 hover:underline">
-            Project No. 1465
-          </h3>
+          <h3 class="text-2xl font-semibold mb-6 hover:underline">Project No. 1465</h3>
         </a>
-        <div class="text-sm">
-          <p class="mb-2"><span class="text-gray-400">Project Type</span><br>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+          <p class="mb-0"><span class="text-gray-400 uppercase tracking-wide text-xs block mb-2">Project Type</span>
             Architectural<br>Bathroom<br>Extension<br>Interiors<br>Kitchen<br>Refurbishment
           </p>
-          <p><span class="text-gray-400">Location</span><br>
+          <p class="mb-0"><span class="text-gray-400 uppercase tracking-wide text-xs block mb-2">Location</span>
             Onegin Park, Saint-Petersburg
           </p>
         </div>
@@ -118,49 +148,63 @@
   </div>
 
   <!-- Residential Projects Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-14 max-w-7xl mx-auto">
 
     <!-- Project Card 1 -->
-    <div class="relative project-card opacity-0 translate-y-12">
-      <div class="absolute w-full h-full bg-[#9b9c9e] top-4 left-4 z-0"></div>
-      <div class="relative w-full h-[500px] z-10">
-        <img src="assets/img/our-projects-page/project-card-3.jpeg" alt="Project Photo" class="w-full h-full object-cover">
-        <div class="absolute bottom-[-0.5rem] right-[-0.5rem] w-[18rem] h-[16rem] bg-[#36383e] text-[#eaeaeb] p-4 z-10 shadow-lg">
-          <a href="project-1399.html">
-            <h3 class="text-xl font-semibold mb-4 hover:underline">
-              Project No. 1399
-            </h3>
-          </a>
-          <div class="text-sm">
-            <p class="mb-2"><span class="text-gray-400">Project Type</span><br>
-              Architectural<br>Bathroom<br>Extension<br>Interiors<br>Kitchen<br>Refurbishment
+    <div class="project-card flex flex-col overflow-hidden">
+      <img src="assets/img/our-projects-page/project-card-3.jpeg" alt="Project Photo" class="w-full h-52 md:h-[420px] object-cover">
+      <div class="bg-[#36383e] text-[#eaeaeb] p-6 flex-1 flex flex-col justify-between">
+        <a href="project-1399.html">
+          <h3 class="text-2xl font-semibold mb-6 hover:underline">Project No. 1399</h3>
+        </a>
+        <div class="grid grid-cols-2 gap-6 text-sm">
+          <!-- Column 1 -->
+          <div>
+            <p class="text-gray-400 uppercase tracking-wide text-xs mb-2">Project Type</p>
+            <p>
+              Architectural<br>
+              Bathroom<br>
+              Extension<br>
+              Interiors<br>
+              Kitchen<br>
+              Refurbishment
             </p>
-            <p><span class="text-gray-400">Location</span><br>
-              Onegin Park, Saint-Petersburg
-            </p>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <p class="text-gray-400 uppercase tracking-wide text-xs mb-2">Location</p>
+            <p>Onegin Park, Saint-Petersburg</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Project Card 2 -->
-    <div class="relative project-card opacity-0 translate-y-12">
-      <div class="absolute w-full h-full bg-[#9b9c9e] top-4 left-4 z-0"></div>
-      <div class="relative w-full h-[500px] z-10">
-        <img src="assets/img/residential/Parkovaya-st-2/main.jpg" alt="Project Photo" class="w-full h-full object-cover">
-        <div class="absolute bottom-[-0.5rem] right-[-0.5rem] w-[18rem] h-[16rem] bg-[#36383e] text-[#eaeaeb] p-4 z-10 shadow-lg">
-          <a href="project-1461.html">
-            <h3 class="text-xl font-semibold mb-4 hover:underline">
-              Project No. 1461
-            </h3>
-          </a>
-          <div class="text-sm">
-            <p class="mb-2"><span class="text-gray-400">Project Type</span><br>
-              Kitchen<br>Lighting<br>Decor
+    <div class="project-card flex flex-col overflow-hidden">
+      <img src="assets/img/residential/Parkovaya-st-2/main.jpg" alt="Project Photo" class="w-full h-52 md:h-[420px] object-cover">
+      <div class="bg-[#36383e] text-[#eaeaeb] p-6 flex-1 flex flex-col justify-between">
+        <a href="project-1461.html">
+          <h3 class="text-2xl font-semibold mb-6 hover:underline">Project No. 1461</h3>
+        </a>
+        <div class="grid grid-cols-2 gap-6 text-sm">
+          <!-- Column 1 -->
+          <div>
+            <p class="text-gray-400 uppercase tracking-wide text-xs mb-2">Project Type</p>
+            <p>
+              Architectural<br>
+              Bathroom<br>
+              Extension<br>
+              Interiors<br>
+              Kitchen<br>
+              Refurbishment
             </p>
-            <p><span class="text-gray-400">Location</span><br>
-              Camden Town, London
-            </p>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <p class="text-gray-400 uppercase tracking-wide text-xs mb-2">Location</p>
+            <p>Onegin Park, Saint-Petersburg</p>
           </div>
         </div>
       </div>
@@ -179,8 +223,7 @@
 
   const projectSectionElements = [
     "#projects-subheading",
-    "#project-title",
-    "#projects-buttons"
+    "#project-title"
   ];
 
   projectSectionElements.forEach((selector, i) => {
@@ -201,21 +244,34 @@
   });
 </script>
 
-<!-- Animation for Each Project Card in the Grid -->
+<!-- Animation for Each Project Card in the Grid (desktop only) -->
 <script>
-  gsap.utils.toArray(".project-card").forEach((card, i) => {
-    gsap.to(card, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      delay: i * 0.1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 80%",
-        toggleActions: "play none none reverse"
-      }
+  const initProjectCardAnimation = () => {
+    gsap.utils.toArray('.project-card').forEach((card, i) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      });
     });
+  };
+
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
+  if (mediaQuery.matches) {
+    initProjectCardAnimation();
+  }
+
+  mediaQuery.addEventListener('change', (event) => {
+    if (event.matches) {
+      initProjectCardAnimation();
+    }
   });
 </script>
 
@@ -224,26 +280,77 @@
 <script>
   let lastScrollTop = 0;
   const navbar = document.getElementById("navbar");
-  const hero = document.querySelector(".hero"); // Make sure hero has this class
+  const hero = document.querySelector(".hero");
+  let menuOpen = false;
 
-  window.addEventListener("scroll", () => {
+  const handleScroll = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Scroll up/down visibility
-    if (scrollTop > lastScrollTop) {
+    if (menuOpen) {
+      navbar.style.transform = '';
+    } else if (scrollTop > lastScrollTop) {
       navbar.style.transform = "translateY(-100%)";
     } else {
-      navbar.style.transform = "translateY(0)";
+      navbar.style.transform = '';
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-    // Toggle inverse class when past hero section
-    const heroHeight = hero ? hero.offsetHeight : 200; // Fallback if no .hero
-    if (scrollTop > hero.offsetHeight * 0.15) {
+    if (hero) {
+      const heroHeight = hero.offsetHeight;
+      if (scrollTop > heroHeight * 0.15) {
+        navbar.classList.add("inverse");
+      } else {
+        navbar.classList.remove("inverse");
+      }
+    }
+
+    if (!hero) {
       navbar.classList.add("inverse");
-    } else {
-      navbar.classList.remove("inverse");
+    }
+
+    if (menuOpen) {
+      navbar.classList.remove('inverse');
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+</script>
+<!-- For mobile -->
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = menuBtn.querySelector('[data-menu-icon]');
+  const closeIcon = menuBtn.querySelector('[data-close-icon]');
+  const menuLinks = mobileMenu.querySelectorAll('a');
+
+  const toggleMenu = () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    const isOpen = !isHidden;
+
+    menuOpen = isOpen;
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    openIcon.classList.toggle('hidden', isOpen);
+    closeIcon.classList.toggle('hidden', !isOpen);
+    document.body.classList.toggle('overflow-hidden', isOpen);
+
+    handleScroll();
+  };
+
+  menuBtn.addEventListener('click', toggleMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      toggleMenu();
     }
   });
 </script>
