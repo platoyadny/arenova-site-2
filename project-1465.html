@@ -189,74 +189,75 @@
   <!-- Script for scrolling animation: Section 2 scrolls up and layers over pinned Section 1 -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
-    const panels = gsap.utils.toArray(".panel");
-  
-    panels.forEach((panel, i) => {
-      if (i === panels.length - 1) return;
-  
-      const nextPanel = panels[i + 1];
-  
-      // Pin current panel as usual
-      if (window.innerWidth >= 768) {
-        // full pinning setup
-        ScrollTrigger.create({
-          trigger: panel,
-          start: "top top",
-          end: "bottom top",
-          pin: true,
-          pinSpacing: false,
-          scrub: true,
+
+    ScrollTrigger.matchMedia({
+      // Desktop: keep pinning animation
+      "(min-width: 768px)": function () {
+        const panels = gsap.utils.toArray(".panel");
+
+        panels.forEach((panel, i) => {
+          if (i === panels.length - 1) return;
+
+          const nextPanel = panels[i + 1];
+
+          // Pin current panel
+          ScrollTrigger.create({
+            trigger: panel,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+            anticipatePin: 1
+          });
+
+          // Scroll lock during transition
+          ScrollTrigger.create({
+            trigger: nextPanel,
+            start: "top bottom",
+            end: "top top",
+            onEnter: () => {
+              panel.style.overflow = "hidden";
+              panel.style.pointerEvents = "none";
+              nextPanel.style.overflow = "hidden";
+              nextPanel.style.pointerEvents = "none";
+            },
+            onEnterBack: () => {
+              panel.style.overflow = "hidden";
+              panel.style.pointerEvents = "none";
+              nextPanel.style.overflow = "hidden";
+              nextPanel.style.pointerEvents = "none";
+            },
+            onLeave: () => {
+              nextPanel.style.overflow = "auto";
+              nextPanel.style.pointerEvents = "auto";
+            },
+            onLeaveBack: () => {
+              panel.style.overflow = "auto";
+              panel.style.pointerEvents = "auto";
+            }
+          });
         });
-      }
-      // ScrollTrigger.create({
-      //   trigger: panel,
-      //   start: "top top",
-      //   end: "bottom top",
-      //   pin: true,
-      //   pinSpacing: false,
-      //   scrub: true,
-      // });
-  
-      // Disable scroll interaction in Section 1 and Section 2 while transition is happening
-      ScrollTrigger.create({
-        trigger: nextPanel,
-        start: "top bottom", // When section 2 starts to appear
-        end: "top top",       // Until section 2 fully covers screen
-        onEnter: () => {
-          panel.style.overflow = "hidden";
-          panel.style.pointerEvents = "none";
-  
-          nextPanel.style.overflow = "hidden";
-          nextPanel.style.pointerEvents = "none";
-        },
-        onEnterBack: () => {
-          panel.style.overflow = "hidden";
-          panel.style.pointerEvents = "none";
-  
-          nextPanel.style.overflow = "hidden";
-          nextPanel.style.pointerEvents = "none";
-        },
-        onLeave: () => {
-          // Section 2 is now fully on screen — enable scroll
-          nextPanel.style.overflow = "auto";
-          nextPanel.style.pointerEvents = "auto";
-        },
-        onLeaveBack: () => {
-          // Section 2 is fully gone — restore section 1 scroll
-          panel.style.overflow = "auto";
-          panel.style.pointerEvents = "auto";
-        }
-      });
-    });
-  
-    // Fading out section-hero (Section 1 inner element)
-    gsap.to(".section-hero", {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".section-gallery", // section 2
-        start: "top bottom",
-        end: "top top",
-        scrub: true
+
+        // Fade out Section 1 when Section 2 comes in
+        gsap.to(".section-hero", {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".section-gallery",
+            start: "top bottom",
+            end: "top top",
+            scrub: true
+          }
+        });
+      },
+
+      // Mobile: disable animation, plain scrolling
+      "(max-width: 767px)": function () {
+        const panels = gsap.utils.toArray(".panel");
+        panels.forEach((panel) => {
+          panel.style.overflow = "";
+          panel.style.pointerEvents = "";
+        });
       }
     });
   </script>
