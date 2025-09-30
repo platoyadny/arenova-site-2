@@ -3,61 +3,79 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arenova site</title>
+  <title>Project 1465</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="tailwind.css">
   <style>
     html {
       scroll-behavior: smooth;
     }
-    section {
-      min-height: 100vh;
-      width: 100%;
-    }
   </style>
   <style>
+    /* Default transparent navbar */
     #navbar {
       background-color: transparent;
     }
 
+    /* The inverse navbar when scrolled down */
     .inverse {
-      background-color: #36383e !important;
+      background-color: #eaeaeb !important;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     }
 
     .inverse #nav-links a {
-      color: #eaeaeb;
+      color: #36383e;
+    }
+
+    /* Burger icon stays dark */
+    #navbar [data-menu-icon],
+    #navbar [data-menu-icon] path {
+      stroke: #36383e;
+    }
+
+    #navbar.inverse [data-menu-icon],
+    #navbar.inverse [data-menu-icon] path {
+      stroke: #36383e;
+    }
+
+    /* Close icon stays dark */
+    #navbar [data-close-icon],
+    #navbar [data-close-icon] path {
+      stroke: #36383e;
     }
 
     .inverse #logo {
-      content: url('assets/img/logo-transparent-light-grey.png');
+      content: url('assets/img/logo-transparent-grey.png');
     }
   </style>
 </head>
 
-<body class="fade-out bg-[#36383e] text-[#eaeaeb]">
+<body class="bg-black text-white fade-out">
+
   <!-- Navbar -->
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
     <div class="flex items-center justify-between px-4 py-3">
       <!-- Logo -->
       <a href="index.html">
-        <img id="logo" src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
+        <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
       </a>
 
       <!-- Burger Icon (mobile only) -->
       <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
-        <svg data-menu-icon class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        <!-- Burger -->
+        <svg data-menu-icon class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
-        <svg data-close-icon class="w-8 h-8 hidden text-[#36383e]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/>
+        <!-- Close -->
+        <svg data-close-icon class="w-8 h-8 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>
         </svg>
       </button>
 
+
       <!-- Navigation Links (desktop) -->
-      <div id="nav-links" class="hidden md:flex space-x-8 text-[#eaeaeb] uppercase text-base transition-colors duration-500">
+      <div id="nav-links" class="hidden md:flex space-x-8 text-[#36383e] uppercase text-base transition-colors duration-500">
         <a href="index.html" class="hover:text-gray-300">Home</a>
         <a href="services2.html" class="hover:text-gray-300">Services</a>
         <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
@@ -82,192 +100,104 @@
     </div>
   </nav>
 
-  <!-- Section 1: Hero + Info + Brief -->
-  <section class="panel section-hero bg-[#36383e] text-[#eaeaeb]">
-    <div class="scroll-wrapper box-border pt-4 pb-8 md:pt-48 md:pb-32">
-        <div class="block md:hidden relative w-full text-left px-0">
-          <div class="px-4 mt-28">
-            <p class="text-sm mb-4">Our Work</p>
-            <h1 class="text-3xl font-bold mb-12">Project No. 1465</h1>
-          </div>
-          <div class="px-4">
-            <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Image" class="w-full h-auto block" />
-          </div>
-        </div>
-        <div class="hidden md:flex items-center justify-between w-full max-w-7xl mx-auto px-8">
-            <div class="z-20 ml-[6rem]">
-                <p class="text-sm mb-2">Our Work</p>
-                <h1 class="text-5xl font-bold">Project No. 1465</h1>
-            </div>
-            <div class="relative w-[40rem] h-[28rem] translate-x-[-60px]">
-                <div class="absolute bg-[#9b9c9e] z-0" style="top: 50%; left: 52%; width: 115%; height: 85%; transform: translate(-50%, -50%);"></div>
-                <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Image" class="relative w-full h-full object-cover z-10" />
-            </div>
-        </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto text-sm mt-20 md:mt-32 px-6 md:px-16">
-        <div>
-            <p class="text-gray-400 mb-1">Property Type</p>
-            <p>Semi-Detached</p>
-        </div>
-        <div>
-            <p class="text-gray-400 mb-1">Property Age</p>
-            <p>1870</p>
-        </div>
-        <div>
-            <p class="text-gray-400 mb-1">Project Type</p>
-            <ul class="space-y-1">
-            <li>Architectural</li>
-            <li>Bathroom</li>
-            <li>Extension</li>
-            <li>Interiors</li>
-            <li>Kitchen</li>
-            <li>Refurbishment</li>
-            </ul>
-        </div>
-        <div>
-            <p class="text-gray-400 mb-1">Location</p>
-            <p>Westbury Park, Bristol</p>
-        </div>
-        </div>
-        <div class="mt-20 md:mt-32 px-6 md:px-16 text-left max-w-4xl mx-auto">
-        <p class="text-sm text-gray-400 mb-2">The Brief</p>
-        <h2 class="text-3xl md:text-4xl font-semibold mb-6">3 storey house, Onegin Park</h2>
-        <p class="text-base leading-relaxed mb-6">
-            Our clients approached us for a comprehensive renovation of their three-storey home, including the design and construction of a single-storey side extension. Excited by the opportunity, we worked closely with the clients to bring their vision to life.
-        </p>
-        </div>
+  <!-- Section 1: Hero + Grid + Brief -->
+  <section class="bg-[#eaeaeb] text-[#36383e] px-6 md:px-16 py-20 pt-48">
+    <!-- Mobile hero -->
+    <div class="block md:hidden mb-12">
+      <p class="text-sm mb-4">Our Work</p>
+      <h1 class="text-3xl font-bold mb-8">Project No. 1465</h1>
+      <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Image" class="w-full h-auto">
+    </div>
+
+    <!-- Desktop hero -->
+    <div class="hidden md:flex items-center justify-center gap-12 max-w-7xl mx-auto mb-20 md:mb-32">
+      <div>
+        <p class="text-sm mb-2">Our Work</p>
+        <h1 class="text-5xl font-bold">Project No. 1465</h1>
+      </div>
+      <div class="relative w-[40rem] h-[28rem]">
+        <div class="absolute bg-[#9b9c9e] z-0" style="top: 50%; left: 52%; width: 115%; height: 85%; transform: translate(-50%, -50%);"></div>
+        <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Image" class="relative w-full h-full object-cover z-10">
+      </div>
+    </div>
+
+    <!-- Info grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto text-sm mb-20">
+      <div>
+        <p class="text-gray-400 mb-1">Property Type</p>
+        <p>Semi-Detached</p>
+      </div>
+      <div>
+        <p class="text-gray-400 mb-1">Property Age</p>
+        <p>1870</p>
+      </div>
+      <div>
+        <p class="text-gray-400 mb-1">Project Type</p>
+        <ul class="space-y-1">
+          <li>Architectural</li>
+          <li>Bathroom</li>
+          <li>Extension</li>
+          <li>Interiors</li>
+          <li>Kitchen</li>
+          <li>Refurbishment</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-gray-400 mb-1">Location</p>
+        <p>Westbury Park, Bristol</p>
+      </div>
+    </div>
+
+    <!-- Brief -->
+    <div class="max-w-4xl mx-auto">
+      <p class="text-sm text-gray-400 mb-2">The Brief</p>
+      <h2 class="text-3xl md:text-4xl font-semibold mb-6">3 storey house, Onegin Park</h2>
+      <p class="text-base leading-relaxed">
+        Our clients approached us for a comprehensive renovation of their three-storey home, including the design and construction of a single-storey side extension. Excited by the opportunity, we worked closely with the clients to bring their vision to life.
+      </p>
     </div>
   </section>
 
-  <!-- Section 2: New Section Reveal -->
-  <section class="panel section-gallery bg-[#eaeaeb] text-[#36383e]">
-      <div class="scroll-wrapper box-border">
-          <!-- Full-screen hero image -->
-          <div class="w-full h-auto md:h-screen">
-          <img src="assets/img/residential/Srednerogatskaya-st/livingroom.jpg" alt="Kitchen Hero" class="w-full h-full object-cover" />
-          </div>
-      
-          <!-- "The Challenge" text block -->
-          <div class="max-w-2xl mx-auto px-6 py-24 mt-28 text-left">
-            <p class="text-base text-gray-400 mb-4">The Challenge</p>
-            <p class="text-lg leading-relaxed">
-                The primary objective of the side extension was to create an open-plan kitchen and dining area, establishing a vibrant central hub for the family. Given the proximity to neighbouring properties, maintaining privacy was a critical aspect of the design. Additionally, the project scope included the installation of a utility room, three new bathrooms, and the full renovation of the remaining spaces within the house.
-            </p>
-          </div>
-      
-          <!-- Image Grid Section -->
-          <div class="space-y-16 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 mt-28 mb-28">
-          
-            <!-- Full-width horizontal image -->
-            <div>
-                <img src="assets/img/residential/Srednerogatskaya-st/kitchen.jpg" alt="Wide View" class="w-full shadow-md" />
-            </div>
-        
-            <!-- Two-column vertical images -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <img src="assets/img/residential/Srednerogatskaya-st/kithcen-sink.jpg" alt="Detail 1" class="w-full h-[700px] object-cover shadow-md" />
-                <img src="assets/img/residential/Srednerogatskaya-st/lighting-livingroom.jpg" alt="Detail 2" class="w-full h-[700px] object-cover shadow-md" />
-            </div>
-        
-            <!-- Another wide image -->
-            <div>
-                <img src="assets/img/residential/Srednerogatskaya-st/horisontal-3.jpg" alt="Wide View 2" class="w-full shadow-md" />
-            </div>
-        
-            <!-- Another pair -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <img src="assets/img/residential/Srednerogatskaya-st/bathroom-sink.jpg" alt="Detail 3" class="w-full h-[700px] object-cover shadow-md" />
-                <img src="assets/img/residential/Srednerogatskaya-st/tolilet-2.jpg" alt="Detail 4" class="w-full h-[700px] object-cover shadow-md" />
-            </div>
-          </div>
+  <!-- Section 2: Hero + Text + Gallery -->
+  <section class="bg-[#eaeaeb] text-[#36383e] px-6 md:px-12 lg:px-20 py-20">
+    <!-- Hero image -->
+    <div class="w-screen h-screen mb-28 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+      <img src="assets/img/residential/Srednerogatskaya-st/livingroom.jpg" alt="Kitchen Hero" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Challenge -->
+    <div class="max-w-2xl mx-auto mb-28">
+      <p class="text-base text-gray-400 mb-4">The Challenge</p>
+      <p class="text-lg leading-relaxed">
+        The primary objective of the side extension was to create an open-plan kitchen and dining area, establishing a vibrant central hub for the family. Given the proximity to neighbouring properties, maintaining privacy was a critical aspect of the design. Additionally, the project scope included the installation of a utility room, three new bathrooms, and the full renovation of the remaining spaces within the house.
+      </p>
+    </div>
+
+    <!-- Image grid -->
+    <div class="space-y-16 max-w-7xl mx-auto">
+      <div>
+        <img src="assets/img/residential/Srednerogatskaya-st/kitchen.jpg" alt="Wide View" class="w-full shadow-md">
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <img src="assets/img/residential/Srednerogatskaya-st/kithcen-sink.jpg" alt="Detail 1" class="w-full h-[500px] object-cover shadow-md">
+        <img src="assets/img/residential/Srednerogatskaya-st/lighting-livingroom.jpg" alt="Detail 2" class="w-full h-[500px] object-cover shadow-md">
+      </div>
+      <div>
+        <img src="assets/img/residential/Srednerogatskaya-st/horisontal-3.jpg" alt="Wide View 2" class="w-full shadow-md">
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <img src="assets/img/residential/Srednerogatskaya-st/bathroom-sink.jpg" alt="Detail 3" class="w-full h-[500px] object-cover shadow-md">
+        <img src="assets/img/residential/Srednerogatskaya-st/tolilet-2.jpg" alt="Detail 4" class="w-full h-[500px] object-cover shadow-md">
+      </div>
+    </div>
   </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/page-fade.js"></script>
   
-  <!-- Script for scrolling animation: Section 2 scrolls up and layers over pinned Section 1 -->
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    ScrollTrigger.matchMedia({
-      // Desktop: keep pinning animation
-      "(min-width: 768px)": function () {
-        const panels = gsap.utils.toArray(".panel");
-
-        panels.forEach((panel, i) => {
-          if (i === panels.length - 1) return;
-
-          const nextPanel = panels[i + 1];
-
-          // Pin current panel
-          ScrollTrigger.create({
-            trigger: panel,
-            start: "top top",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            scrub: true,
-            anticipatePin: 1
-          });
-
-          // Scroll lock during transition
-          ScrollTrigger.create({
-            trigger: nextPanel,
-            start: "top bottom",
-            end: "top top",
-            onEnter: () => {
-              panel.style.overflow = "hidden";
-              panel.style.pointerEvents = "none";
-              nextPanel.style.overflow = "hidden";
-              nextPanel.style.pointerEvents = "none";
-            },
-            onEnterBack: () => {
-              panel.style.overflow = "hidden";
-              panel.style.pointerEvents = "none";
-              nextPanel.style.overflow = "hidden";
-              nextPanel.style.pointerEvents = "none";
-            },
-            onLeave: () => {
-              nextPanel.style.overflow = "auto";
-              nextPanel.style.pointerEvents = "auto";
-            },
-            onLeaveBack: () => {
-              panel.style.overflow = "auto";
-              panel.style.pointerEvents = "auto";
-            }
-          });
-        });
-
-        // Fade out Section 1 when Section 2 comes in
-        gsap.to(".section-hero", {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: ".section-gallery",
-            start: "top bottom",
-            end: "top top",
-            scrub: true
-          }
-        });
-      },
-
-      // Mobile: disable animation, plain scrolling
-      "(max-width: 767px)": function () {
-        const panels = gsap.utils.toArray(".panel");
-        panels.forEach((panel) => {
-          panel.style.overflow = "";
-          panel.style.pointerEvents = "";
-        });
-      }
-    });
-  </script>
-
   <!-- Script for the navbar -->
   <script>
     let lastScrollTop = 0;
     const navbar = document.getElementById("navbar");
-    const hero = document.querySelector(".hero");
-    const scrollWrappers = document.querySelectorAll('.scroll-wrapper');
     let menuOpen = false;
 
     const handleScroll = () => {
@@ -283,81 +213,21 @@
 
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-      if (hero) {
-        const heroHeight = hero.offsetHeight;
-        if (scrollTop > heroHeight * 0.15) {
-          navbar.classList.add("inverse");
-        } else {
-          navbar.classList.remove("inverse");
-        }
+      // Add inverse class after scrolling down 20px
+      if (scrollTop > 20) {
+        navbar.classList.add("inverse");
+      } else {
+        navbar.classList.remove("inverse");
       }
 
-      if (!hero) {
-        navbar.classList.add("inverse");
+      if (menuOpen) {
+        navbar.classList.remove('inverse');
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openIcon = menuBtn.querySelector('[data-menu-icon]');
-    const closeIcon = menuBtn.querySelector('[data-close-icon]');
-    const menuLinks = mobileMenu.querySelectorAll('a');
-
-    const toggleMenu = () => {
-      const isHidden = mobileMenu.classList.toggle('hidden');
-      const isOpen = !isHidden;
-
-      menuOpen = isOpen;
-      menuBtn.setAttribute('aria-expanded', isOpen);
-      openIcon.classList.toggle('hidden', isOpen);
-      closeIcon.classList.toggle('hidden', !isOpen);
-      document.body.classList.toggle('overflow-hidden', isOpen);
-
-      handleScroll();
-    };
-
-    menuBtn.addEventListener('click', toggleMenu);
-
-    menuLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        if (!mobileMenu.classList.contains('hidden')) {
-          toggleMenu();
-        }
-      });
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-        toggleMenu();
-      }
-    });
-
-    if (window.matchMedia('(min-width: 768px)').matches) {
-      scrollWrappers.forEach((wrapper) => {
-        let wrapperLastScrollTop = 0;
-
-        wrapper.addEventListener('scroll', () => {
-          const currentScrollTop = wrapper.scrollTop;
-
-          if (menuOpen) {
-            navbar.style.transform = '';
-          } else if (currentScrollTop > wrapperLastScrollTop) {
-            navbar.style.transform = "translateY(-100%)";
-          } else {
-            navbar.style.transform = '';
-          }
-
-          wrapperLastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-        });
-      });
-    }
   </script>
 
-  <!-- <script src="js/navbar-scroll.js"></script> -->
-  <script src="js/page-fade.js"></script>
 </body>
-
 </html>
