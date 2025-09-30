@@ -200,10 +200,12 @@
       ScrollTrigger.create({
         trigger: panel,
         start: "top top",
-        end: "bottom top",
+        end: () => window.innerWidth < 768 ? "center top" : "bottom top",
+        // end: "bottom top",
         pin: true,
         pinSpacing: false,
         scrub: true,
+        // anticipatePin: 1
       });
   
       // Disable scroll interaction in Section 1 and Section 2 while transition is happening
