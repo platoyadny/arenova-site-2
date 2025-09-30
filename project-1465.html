@@ -13,7 +13,7 @@
       scroll-behavior: smooth;
     }
     section {
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
     }
   </style>
@@ -84,7 +84,7 @@
 
   <!-- Section 1: Hero + Info + Brief -->
   <section class="panel section-hero bg-[#36383e] text-[#eaeaeb]">
-    <div class="scroll-wrapper h-full overflow-y-auto box-border pt-4 pb-8 md:pt-48 md:pb-32">
+    <div class="scroll-wrapper box-border pt-4 pb-8 md:pt-48 md:pb-32">
         <div class="block md:hidden relative w-full text-left px-0">
           <div class="px-4 mt-28">
             <p class="text-sm mb-4">Our Work</p>
@@ -141,7 +141,7 @@
 
   <!-- Section 2: New Section Reveal -->
   <section class="panel section-gallery bg-[#eaeaeb] text-[#36383e]">
-      <div class="scroll-wrapper h-full overflow-y-auto box-border">
+      <div class="scroll-wrapper box-border">
           <!-- Full-screen hero image -->
           <div class="w-full h-screen">
           <img src="assets/img/residential/Srednerogatskaya-st/livingroom.jpg" alt="Kitchen Hero" class="w-full h-full object-cover" />
@@ -335,23 +335,25 @@
       }
     });
 
-    scrollWrappers.forEach((wrapper) => {
-      let wrapperLastScrollTop = 0;
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      scrollWrappers.forEach((wrapper) => {
+        let wrapperLastScrollTop = 0;
 
-      wrapper.addEventListener('scroll', () => {
-        const currentScrollTop = wrapper.scrollTop;
+        wrapper.addEventListener('scroll', () => {
+          const currentScrollTop = wrapper.scrollTop;
 
-        if (menuOpen) {
-          navbar.style.transform = '';
-        } else if (currentScrollTop > wrapperLastScrollTop) {
-          navbar.style.transform = "translateY(-100%)";
-        } else {
-          navbar.style.transform = '';
-        }
+          if (menuOpen) {
+            navbar.style.transform = '';
+          } else if (currentScrollTop > wrapperLastScrollTop) {
+            navbar.style.transform = "translateY(-100%)";
+          } else {
+            navbar.style.transform = '';
+          }
 
-        wrapperLastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+          wrapperLastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+        });
       });
-    });
+    }
   </script>
 
   <!-- <script src="js/navbar-scroll.js"></script> -->
