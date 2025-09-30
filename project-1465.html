@@ -197,15 +197,25 @@
       const nextPanel = panels[i + 1];
   
       // Pin current panel as usual
-      ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
-        end: "bottom top",
-        pin: true,
-        pinSpacing: false,
-        scrub: true,
-        // anticipatePin: 1
-      });
+      if (window.innerWidth >= 768) {
+        // full pinning setup
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+          pinSpacing: false,
+          scrub: true,
+        });
+      }
+      // ScrollTrigger.create({
+      //   trigger: panel,
+      //   start: "top top",
+      //   end: "bottom top",
+      //   pin: true,
+      //   pinSpacing: false,
+      //   scrub: true,
+      // });
   
       // Disable scroll interaction in Section 1 and Section 2 while transition is happening
       ScrollTrigger.create({
