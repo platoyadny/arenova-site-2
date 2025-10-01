@@ -20,18 +20,35 @@
         background-color: transparent;
       }
     
-      /* The inverse navbar when scrolled down */
+    /* The inverse navbar when scrolled down */
       .inverse {
-        background-color: #36383e !important; 
+        background-color: #eaeaeb !important;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
       }
-    
+
       .inverse #nav-links a {
-        color: #eaeaeb;
+        color: #36383e;
       }
-    
+
+      /* Burger icon stays dark */
+      #navbar [data-menu-icon],
+      #navbar [data-menu-icon] path {
+        stroke: #36383e;
+      }
+
+      #navbar.inverse [data-menu-icon],
+      #navbar.inverse [data-menu-icon] path {
+        stroke: #36383e;
+      }
+
+      /* Close icon stays dark */
+      #navbar [data-close-icon],
+      #navbar [data-close-icon] path {
+        stroke: #36383e;
+      }
+
       .inverse #logo {
-        content: url('assets/img/logo-transparent-light-grey.png'); 
+        content: url('assets/img/logo-transparent-grey.png');
       }
     </style>
   </head>
@@ -57,7 +74,7 @@
       </button>
 
       <!-- Navigation Links (desktop) -->
-      <div class="hidden md:flex space-x-8 text-[#eaeaeb] uppercase text-base transition-colors duration-500">
+      <div id="nav-links" class="hidden md:flex space-x-8 text-[#eaeaeb] uppercase text-base transition-colors duration-500">
         <a href="index.html" class="hover:text-gray-300">Home</a>
         <a href="services2.html" class="hover:text-gray-300">Services</a>
         <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
