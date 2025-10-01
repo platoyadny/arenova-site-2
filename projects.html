@@ -99,14 +99,20 @@
   </div>
 </nav>
 
-<!-- Projects Page Header with Animated Text -->
-<section class="hero relative h-screen flex flex-col items-center justify-center text-[#36383e] pt-32 overflow-hidden">
 
-  <!-- Blurred and faded background image layer -->
-  <div class="absolute inset-0 bg-[url('assets/img/our-projects-page/bg-hero.jpg')] bg-cover bg-center blur-lg opacity-99 shadow-xl"></div>
+<!-- Projects Page Header with Centered Background -->
+<section class="hero relative flex flex-col items-center justify-center text-[#36383e] pt-20 overflow-hidden bg-[#eaeaeb] h-screen">
+
+  <!-- Centered Blurred Background Image -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <!-- Adjust blur: use blur-sm, blur-md, blur-lg, blur-xl -->
+    <img src="assets/img/our-projects-page/bg-2.png" 
+      alt="Projects Background"
+      class="w-auto h-[65vh] md:h-auto md:w-1/2 max-w-[900px] blur-sm opacity-80 object-contain mx-auto" />
+  </div>
 
   <!-- Content Wrapper above the blur -->
-  <div class="relative z-10 text-center px-4 -mt-12">
+  <div class="relative z-10 text-center px-4">
     <!-- Subheading -->
     <p id="projects-subheading" class="text-sm md:text-base mb-8 opacity-0 translate-y-8">
       Our Work
@@ -118,7 +124,6 @@
       wherever else your imagination<br>
       takes you
     </h1>
-
   </div>
 </section>
 

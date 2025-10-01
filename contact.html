@@ -13,30 +13,55 @@
     }
   </style>
   <style>
+    /* Default transparent navbar */
     #navbar {
       background-color: transparent;
     }
+
+    /* The inverse navbar when scrolled down */
     .inverse {
-      background-color: #36383e !important;
+      background-color: #eaeaeb !important;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     }
+
     .inverse #nav-links a {
-      color: #eaeaeb;
+      color: #36383e;
     }
+
+    /* Burger icon stays dark */
+    #navbar [data-menu-icon],
+    #navbar [data-menu-icon] path {
+      stroke: #36383e;
+    }
+
+    #navbar.inverse [data-menu-icon],
+    #navbar.inverse [data-menu-icon] path {
+      stroke: #36383e;
+    }
+
+    /* Close icon stays dark */
+    #navbar [data-close-icon],
+    #navbar [data-close-icon] path {
+      stroke: #36383e;
+    }
+
     .inverse #logo {
-      content: url('assets/img/logo-transparent-light-grey.png');
+      content: url('assets/img/logo-transparent-grey.png');
     }
   </style>
-</head>
-<body class="bg-black text-[#36383e] fade-out">
-  <div class="bg-[#eaeaeb] min-h-screen">
+  </head>
+
+  <body class="bg-black text-white fade-out">
+    <!-- Navbar -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
       <div class="flex items-center justify-between px-4 py-3">
+        <!-- Logo -->
         <a href="index.html">
-          <img id="logo" src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
+          <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
         </a>
 
-        <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
+        <!-- Burger (mobile) -->
+        <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden z-50 relative w-10 h-10 flex items-center justify-center">
           <svg data-menu-icon class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -45,27 +70,28 @@
           </svg>
         </button>
 
-        <div id="nav-links" class="hidden md:flex space-x-8 text-[#eaeaeb] uppercase text-base transition-colors duration-500">
-          <a href="index.html" class="hover:text-gray-300">Home</a>
-          <a href="services2.html" class="hover:text-gray-300">Services</a>
-          <a href="projects.html" class="hover:text-gray-300">Recent Projects</a>
-          <a href="about-2.html" class="hover:text-gray-300">About Us</a>
-          <a href="contact.html" class="hover:text-gray-300">Contact</a>
+        <!-- Desktop Links -->
+        <div id="nav-links" class="hidden md:flex space-x-8 text-[#36383e] uppercase text-base transition-colors duration-500">
+          <a href="index.html">Home</a>
+          <a href="services2.html">Services</a>
+          <a href="projects.html">Recent Projects</a>
+          <a href="about-2.html">About Us</a>
+          <a href="contact.html">Contact</a>
         </div>
       </div>
 
+      <!-- Mobile Menu -->
       <div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-[#36383e] hidden flex-col justify-center items-center z-40">
         <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
-
         <nav class="flex flex-col items-center space-y-6 text-xl font-medium uppercase">
-          <a href="index.html" class="hover:text-gray-600">Home</a>
-          <a href="services2.html" class="hover:text-gray-600">Services</a>
-          <a href="projects.html" class="hover:text-gray-600">Recent Projects</a>
-          <a href="about-2.html" class="hover:text-gray-600">About Us</a>
-          <a href="contact.html" class="hover:text-gray-600">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="services2.html">Services</a>
+          <a href="projects.html">Recent Projects</a>
+          <a href="about-2.html">About Us</a>
+          <a href="contact.html">Contact</a>
         </nav>
       </div>
-    </nav>
+    </nav>  
 
     <section id="contact" class="bg-[#eaeaeb] text-[#36383e] py-36 px-6">
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4 md:px-8">
@@ -124,13 +150,12 @@
   <footer class="bg-[#36383e] text-white py-8 text-center">
     <p class="text-sm">© 2025 Arenova. All rights reserved.</p>
   </footer>
-  
+
   <script src="js/page-fade.js"></script>
   <!-- Script for the navbar -->
   <script>
     let lastScrollTop = 0;
     const navbar = document.getElementById("navbar");
-    const hero = document.querySelector(".hero");
     let menuOpen = false;
 
     const handleScroll = () => {
@@ -146,23 +171,22 @@
 
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-      if (hero) {
-        const heroHeight = hero.offsetHeight;
-        if (scrollTop > heroHeight * 0.15) {
-          navbar.classList.add("inverse");
-        } else {
-          navbar.classList.remove("inverse");
-        }
+      // Add inverse class after scrolling down 20px
+      if (scrollTop > 20) {
+        navbar.classList.add("inverse");
+      } else {
+        navbar.classList.remove("inverse");
       }
 
-      if (!hero) {
-        navbar.classList.add("inverse");
+      if (menuOpen) {
+        navbar.classList.remove('inverse');
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
   </script>
+
   <!-- For mobile -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
