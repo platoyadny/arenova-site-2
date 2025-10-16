@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arenova - мы сделаем Вам ремонт!</title>  
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap&subset=cyrillic" rel="stylesheet">
+    
+    <link rel="stylesheet" href="tailwind.css">  <!-- correct path -->
+    <style>
+        html {
+        scroll-behavior: smooth;
+        font-size: 120%;
+        }
+    </style>
+    <style>
+      /* The default transparent navbar (on hero) */
+      #navbar {
+        background-color: transparent;
+      }
+    
+      /* The inverse navbar when scrolled down */
+      .inverse {
+        background-color: #eaeaeb !important;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
+    
+      .inverse #nav-links a {
+        color: #000000;
+      }
+
+      /* Burger icon = dark by default, light when inverse */
+      #navbar [data-menu-icon],
+      #navbar [data-menu-icon] path {
+        stroke: #000000;
+      }
+      #navbar.inverse [data-menu-icon],
+      #navbar.inverse [data-menu-icon] path {
+        stroke: #000000;
+      }
+
+      /* Close icon = keep dark (overlay menu has a light background) */
+      #navbar [data-close-icon],
+      #navbar [data-close-icon] path {
+        stroke: #000000;
+      }
+
+      .inverse #logo {
+        content: url('assets/img/logo-transparent-grey.png'); 
+      }
+
+      .project-card {
+        border-radius: 28px;
+        overflow: hidden;
+      }
+
+      .project-card img {
+        border-radius: 0;
+      }
+    </style>
+  <style id="project-grey-filter">
+  .projects-grid img, .project-card img {
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+  }
+  .projects-grid img:hover, .project-card img:hover {
+    filter: grayscale(0%);
+  }
+</style>
+</head>
+<body class="bg-white text-black fade-out">
+
+<!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
+  <div class="flex items-center justify-between px-4 py-3">
+    <!-- Logo -->
+    <a href="index.html">
+      <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
+    </a>
+
+    <!-- Burger Icon (mobile only) -->
+    <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
+      <!-- Burger -->
+      <svg data-menu-icon class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <!-- Close -->
+      <svg data-close-icon class="w-8 h-8 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>
+      </svg>
+    </button>
+
+    <!-- Navigation Links (desktop) -->
+    <div id="nav-links" class="hidden md:flex space-x-8 text-black uppercase text-base transition-colors duration-500">
+      <a href="index.html" class="hover:text-gray-300">Главная</a>
+      <a href="services2.html" class="hover:text-gray-300">Услуги</a>
+      <a href="projects.html" class="hover:text-gray-300">Реализованные проекты</a>
+      <a href="about-2.html" class="hover:text-gray-300">О компании</a>
+      <a href="contact.html" class="hover:text-gray-300">Контакты</a>
+    </div>
+  </div>
+
+  <!-- Fullscreen Overlay Mobile Menu -->
+<div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-black hidden flex-col justify-center items-center z-40">
+    <!-- Centered Logo -->
+    <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
+
+    <!-- Vertical Links -->
+    <nav class="flex flex-col items-center space-y-6 text-xl font-medium uppercase">
+      <a href="index.html" class="hover:text-gray-600">Главная</a>
+      <a href="services2.html" class="hover:text-gray-600">Услуги</a>
+      <a href="projects.html" class="hover:text-gray-600">Реализованные проекты</a>
+      <a href="about-2.html" class="hover:text-gray-600">О компании</a>
+      <a href="contact.html" class="hover:text-gray-600">Контакты</a>
+    </nav>
+  </div>
+</nav>
+
+
+<!-- Projects Page Header with Centered Background -->
+<section class="hero relative flex flex-col items-center justify-center text-black pt-20 overflow-hidden bg-[#eaeaeb] h-screen">
+
+  <!-- Centered Blurred Background Image -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <!-- Adjust blur: use blur-sm, blur-md, blur-lg, blur-xl -->
+    <img src="assets/img/our-projects-page/bg-2.png" 
+      alt="Projects Background"
+      class="hidden md:block w-auto md:h-auto md:w-1/2 max-w-[900px] blur-sm opacity-80 object-contain mx-auto" />
+  </div>
+
+  <!-- Content Wrapper above the blur -->
+  <div class="relative z-10 text-center px-4">
+    <div class="bg-transparent text-black px-6 py-8 rounded-3xl max-w-4xl mx-auto space-y-4">
+      <!-- Subheading -->
+      <p id="projects-subheading" class="text-sm md:text-base opacity-0 translate-y-8 text-black">
+        Наши работы
+      </p>
+
+      <!-- Main Heading -->
+      <h1 id="project-title" class="text-3xl md:text-5xl font-semibold mx-auto opacity-0 translate-y-8 leading-snug text-black">
+        Построено и отремонтировано нами:<br>
+        Квартиры, капремонт, малые дома и террасы — смотрите решения<br>
+        и детали исполнения. 
+      </h1>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- Residential Projects Section -->
+<section id="residential-projects" class="bg-[#eaeaeb] py-24 md:py-32 px-4 sm:px-8 md:px-24">
+  <div class="flex flex-col gap-12 md:gap-20 projects-layout">
+
+  <!-- Featured Project Card (Hero Style) -->
+  <div class="project-card text-white flex flex-col overflow-hidden rounded-3xl shadow-xl" style="background-color:#222222;">
+    <img src="assets/img/our-projects-page/project-card-1.jpg" alt="Project Photo" class="w-full h-60 md:h-[80vh] object-cover rounded-t-3xl">
+    <div class="project-info p-6 md:p-10 space-y-6 rounded-b-3xl" style="background-color:#222222;">
+      <div>
+        <a href="project-1465.html">
+          <h3 class="text-2xl font-semibold mb-6 hover:underline">Трехкомнатная квартира в московском районе</h3>
+        </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+          <div>
+            <p class="text-white uppercase tracking-wide text-xs font-semibold inline-block mb-3 bg-[#3a3a3a] px-3 py-1 rounded-full shadow-sm">Работы</p>
+            <p class="mb-0">
+              Капитальный ремонт<br>Архитектурное проектирование<br>Электромонтажные работы<br>Ванная комната<br>Кухня
+            </p>
+          </div>
+          <div>
+            <p class="text-white uppercase tracking-wide text-xs font-semibold inline-block mb-3 bg-[#3a3a3a] px-3 py-1 rounded-full shadow-sm">Местоположение</p>
+            <p class="mb-0">
+              Московский район, Санкт-Петербург
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Residential Projects Grid -->
+  <div class="projects-grid grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-7xl mx-auto w-full">
+
+    <!-- Project Card 1 -->
+    <div class="project-card text-white flex flex-col overflow-hidden rounded-3xl shadow-lg" style="background-color:#222222;">
+      <img src="assets/img/our-projects-page/project-card-3.jpeg" alt="Project Photo" class="w-full h-52 md:h-[420px] object-cover rounded-t-3xl">
+      <div class="project-info p-6 sm:p-8 space-y-6 rounded-b-3xl" style="background-color:#222222;">
+        <a href="project-1399.html">
+          <h3 class="text-2xl font-semibold mb-6 hover:underline">Двухкомнатная квартира в пушкинском районе</h3>
+        </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 text-sm">
+          <!-- Column 1 -->
+          <div>
+            <p class="text-white uppercase tracking-wide text-xs font-semibold inline-block mb-3 bg-[#3a3a3a] px-3 py-1 rounded-full shadow-sm">Работы</p>
+            <p>
+              Ремонт под ключ<br>
+              Перепланировка<br>
+              Архитектурное проектирование<br>
+              Электромонтажные работы<br>
+              Ванная комната<br>
+              Кухня
+            </p>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <p class="text-white uppercase tracking-wide text-xs font-semibold inline-block mb-3 bg-[#3a3a3a] px-3 py-1 rounded-full shadow-sm">Местоположение</p>
+            <p>Пушкинский район, Санкт-Петербург</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card 2 -->
+    <div class="project-card text-white flex flex-col overflow-hidden rounded-3xl shadow-lg" style="background-color:#222222;">
+      <img src="assets/img/residential/Parkovaya-st-2/main.jpg" alt="Project Photo" class="w-full h-52 md:h-[420px] object-cover rounded-t-3xl">
+      <div class="project-info p-6 sm:p-8 space-y-6 rounded-b-3xl" style="background-color:#222222;">
+        <a href="project-1461.html">
+          <h3 class="text-2xl font-semibold mb-6 hover:underline">Студия в пушкинском районе</h3>
+        </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 text-sm">
+          <!-- Column 1 -->
+          <div>
+            <p class="text-white uppercase tracking-wide text-xs font-semibold inline-block mb-3 bg-[#3a3a3a] px-3 py-1 rounded-full shadow-sm">Работы</p>
+            <p>
+              Капитальный ремонт<br>
+              Перепланировка<br>
+              Архитектурное проектирование<br>
+              Электромонтажные работы<br>
+              Ванная комната<br>
+              Кухня
+            </p>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <p class="text-white uppercase tracking-wide text-xs font-semibold inline-block mb-3 bg-[#3a3a3a] px-3 py-1 rounded-full shadow-sm">Местоположение</p>
+            <p>Пушкинский район, Санкт-Петербург</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="text-white py-8 text-center" style="background-color:#222222;">
+  <p class="text-sm">© 2025 Arenova. Все права защищены.</p>
+</footer>
+
+<!-- GSAP & ScrollTrigger (if not already included) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Text Animation for Hero Section -->
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const projectSectionElements = [
+    "#projects-subheading",
+    "#project-title"
+  ];
+
+  projectSectionElements.forEach((selector, i) => {
+    gsap.fromTo(selector,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.1,
+        scrollTrigger: {
+          trigger: selector,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+</script>
+
+<!-- Animation for Each Project Card in the Grid (desktop only) -->
+<script>
+  const initProjectCardAnimation = () => {
+    gsap.utils.toArray('.project-card').forEach((card, i) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    });
+  };
+
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
+  if (mediaQuery.matches) {
+    initProjectCardAnimation();
+  }
+
+  mediaQuery.addEventListener('change', (event) => {
+    if (event.matches) {
+      initProjectCardAnimation();
+    }
+  });
+</script>
+
+  
+<!-- Script for the navbar -->
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
+  const hero = document.querySelector(".hero");
+  let menuOpen = false;
+
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (menuOpen) {
+      navbar.style.transform = '';
+    } else if (scrollTop > lastScrollTop) {
+      navbar.style.transform = "translateY(-100%)";
+    } else {
+      navbar.style.transform = '';
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+    if (hero) {
+      const heroHeight = hero.offsetHeight;
+      if (scrollTop > heroHeight * 0.15) {
+        navbar.classList.add("inverse");
+      } else {
+        navbar.classList.remove("inverse");
+      }
+    }
+
+    if (!hero) {
+      navbar.classList.add("inverse");
+    }
+
+    if (menuOpen) {
+      navbar.classList.remove('inverse');
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+</script>
+<!-- For mobile -->
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = menuBtn.querySelector('[data-menu-icon]');
+  const closeIcon = menuBtn.querySelector('[data-close-icon]');
+  const menuLinks = mobileMenu.querySelectorAll('a');
+
+  const toggleMenu = () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    const isOpen = !isHidden;
+
+    menuOpen = isOpen;
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    openIcon.classList.toggle('hidden', isOpen);
+    closeIcon.classList.toggle('hidden', !isOpen);
+    document.body.classList.toggle('overflow-hidden', isOpen);
+
+    handleScroll();
+  };
+
+  menuBtn.addEventListener('click', toggleMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      toggleMenu();
+    }
+  });
+</script>
+
+<!-- <script src="js/navbar-scroll.js"></script> -->
+<!-- <script src="js/before-after-gellary.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script> -->
+<script src="js/project-card-gallery.js"></script>
+<script src="js/page-fade.js"></script>
+
+
+</body>
+</html>

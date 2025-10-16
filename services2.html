@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arenova - мы сделаем Вам ремонт!</title>  
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap&subset=cyrillic" rel="stylesheet">
+  
+    <link rel="stylesheet" href="tailwind.css">  <!-- correct path -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+        font-size: 120%;
+      }
+    </style>
+    <style>
+      body.services-wallpaper {
+        background-color: #ffffff;
+        color: #36383e;
+        background-image: url('assets/img/services-page/ff4330ab5e919f182453e666440a897e216a8c9ac6d02baa7e4e9cc242277d75.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+
+      .text-panel {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 28px;
+        padding: 2.5rem 3rem;
+        box-shadow: 0 0 60px rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      .service-card {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 24px;
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.75);
+      }
+
+      /* The default transparent navbar (on hero) */
+      #navbar {
+        background-color: transparent;
+      }
+
+      /* The inverse navbar when scrolled down */
+      .inverse {
+        background-color: #eaeaeb !important;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .inverse #nav-links a {
+        color: #000000;
+      }
+
+      /* Burger icon = dark by default, light when inverse */
+      #navbar [data-menu-icon],
+      #navbar [data-menu-icon] path {
+        stroke: #000000;
+      }
+      #navbar.inverse [data-menu-icon],
+      #navbar.inverse [data-menu-icon] path {
+        stroke: #000000;
+      }
+
+      /* Close icon = keep dark (overlay menu has a light background) */
+      #navbar [data-close-icon],
+      #navbar [data-close-icon] path {
+        stroke: #000000;
+      }
+
+      .inverse #logo {
+        content: url('assets/img/logo-transparent-grey.png'); 
+      }
+    </style>
+  </head>
+<body class="services-wallpaper text-black">
+
+  <!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
+  <div class="flex items-center justify-between px-4 py-3">
+    <!-- Logo -->
+    <a href="index.html">
+      <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
+    </a>
+
+    <!-- Burger Icon (mobile only) -->
+    <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden focus:outline-none z-50 relative w-10 h-10 flex items-center justify-center">
+      <!-- Burger -->
+      <svg data-menu-icon class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <!-- Close -->
+      <svg data-close-icon class="w-8 h-8 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>
+      </svg>
+    </button>
+
+
+    <!-- Navigation Links (desktop) -->
+    <div id="nav-links" class="hidden md:flex space-x-8 text-black uppercase text-base transition-colors duration-500">
+      <a href="index.html" class="hover:text-gray-300">Главная</a>
+      <a href="services2.html" class="hover:text-gray-300">Услуги</a>
+      <a href="projects.html" class="hover:text-gray-300">Реализованные проекты</a>
+      <a href="about-2.html" class="hover:text-gray-300">О компании</a>
+      <a href="contact.html" class="hover:text-gray-300">Контакты</a>
+    </div>
+  </div>
+
+  <!-- Fullscreen Overlay Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-black hidden flex-col justify-center items-center z-40">
+    <!-- Centered Logo -->
+    <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
+
+    <!-- Vertical Links -->
+    <nav class="flex flex-col items-center space-y-6 text-xl font-medium uppercase">
+      <a href="index.html" class="hover:text-gray-600">Главная</a>
+      <a href="services2.html" class="hover:text-gray-600">Услуги</a>
+      <a href="projects.html" class="hover:text-gray-600">Реализованные проекты</a>
+      <a href="about-2.html" class="hover:text-gray-600">О компании</a>
+      <a href="contact.html" class="hover:text-gray-600">Контакты</a>
+    </nav>
+  </div>
+</nav>
+
+<!-- Hero Section for Services Page -->
+<section class="hero h-screen flex flex-col items-center justify-center text-black pt-32 px-4">
+  <div class="text-panel max-w-4xl text-center space-y-6" id="services-hero-panel">
+    <!-- Subheading -->
+    <p id="services-subheading" class="text-sm md:text-base tracking-wide uppercase">Чем мы занимаемся?</p>
+
+    <!-- Main Heading -->
+    <h1 id="services-title" class="text-3xl md:text-5xl font-semibold leading-snug">
+      Широкий спектр услуг от профессионалов строительной отрасли Санкт-Петербурга — для вашего дома или бизнеса.
+    </h1>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="pt-24 px-4 sm:px-6 lg:px-20 text-black min-h-screen">
+  <div class="text-panel max-w-4xl mx-auto text-center mb-12">
+    <h2 class="text-4xl font-semibold">Наши услуги</h2>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+
+    <!-- Architectural Design -->
+    <div class="flex flex-col items-center text-center p-4 sm:p-6 bg-white rounded-2xl shadow service-card">
+      <img src="assets/img/services-page/Aechitechtural Design Icon.png" alt="Architectural Design" class="w-14 h-14 mb-4">
+      <h3 class="text-xl font-semibold mb-2">Архитектурное проектирование</h3>
+      <p class="text-sm">Полный цикл планирования: дизайн, чертежи, согласования, разрешения и техническая документация.</p>
+    </div>
+
+    <!-- Construction & Structural Work -->
+    <div class="flex flex-col items-center text-center p-4 sm:p-6 bg-white rounded-2xl shadow service-card">
+      <img src="assets/img/services-page/Constrution Work Icon.png" alt="Construction & Structural Work" class="w-14 h-14 mb-4">
+      <h3 class="text-xl font-semibold mb-2">Строительство и конструкции</h3>
+      <p class="text-sm">Все работы по изменению, возведению или усилению несущих конструкций здания.</p>
+    </div>
+
+    <!-- Interior Work & Finishing -->
+    <div class="flex flex-col items-center text-center p-4 sm:p-6 bg-white rounded-2xl shadow service-card">
+      <img src="assets/img/services-page/Interior Renovation Icon.png" alt="Interior & Finishing" class="w-14 h-14 mb-4">
+      <h3 class="text-xl font-semibold mb-2">Внутренняя отделка</h3>
+      <p class="text-sm">Ненесущие внутренние работы: полы, покраска, проводка и прочее.</p>
+    </div>
+
+    <!-- Kitchen Installation -->
+    <div class="flex flex-col items-center text-center p-4 sm:p-6 bg-white rounded-2xl shadow service-card">
+      <img src="assets/img/services-page/Kitchen Renovation Icon.png" alt="Kitchen Installation" class="w-14 h-14 mb-4">
+      <h3 class="text-xl font-semibold mb-2">Установка кухонь</h3>
+      <p class="text-sm">Полная комплектация кухни: сантехника, мебель, вентиляция.</p>
+    </div>
+
+    <!-- Bathrooms & Sanitation -->
+    <div class="flex flex-col items-center text-center p-4 sm:p-6 bg-white rounded-2xl shadow service-card">
+      <img src="assets/img/services-page/Bathroom Renovation Ican.png" alt="Bathrooms" class="w-14 h-14 mb-4">
+      <h3 class="text-xl font-semibold mb-2">Ванные комнаты</h3>
+      <p class="text-sm">Полная установка, укладка плитки, гидроизоляция и вентиляция.</p>
+    </div>
+
+    <!-- Utility & Functional Spaces -->
+    <div class="flex flex-col items-center text-center p-4 sm:p-6 bg-white rounded-2xl shadow service-card">
+      <img src="assets/img/services-page/Functional Space Icon.png" alt="Utility Spaces" class="w-14 h-14 mb-4">
+      <h3 class="text-xl font-semibold mb-2">Технические помещения</h3>
+      <p class="text-sm">Монтаж и обустройство прачечных, котельных, домашних кинотеатров.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="h-16 w-full bg-black"></div>
+
+<!-- Remark section for Services Page -->
+<section id="service-cta" class="text-black pt-6 pb-24 px-4">
+  <div class="text-panel max-w-4xl mx-auto">
+    <h2 id="remark-title" class="text-xl md:text-2xl font-semibold mb-4">
+      Не нашли нужную услугу?
+    </h2>
+
+    <p id="remark-line-1" class="text-base md:text-lg leading-relaxed mb-2">
+      Мы не размещаем на этой странице все варианты — многие проекты выполняем индивидуально. Расскажите нашему специалисту, что вам нужно, и мы подскажем объём работ, сроки и стоимость.
+    </p>
+    <div class="mt-8" id="remark-cta">
+      <a href="contact.html" class="inline-block border border-black text-black px-6 py-3 rounded hover:bg-[#dcdcdc] hover:text-black transition">
+        → Свяжитесь с нами
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="text-white py-8 text-center" style="background-color:#222222;">
+  <p class="text-sm">© 2025 Arenova. Все права защищены.</p>
+</footer>
+
+<!-- GSAP & ScrollTrigger (if not already included) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Text Animation for Hero Section -->
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const servicesSectionElements = [
+    "#services-subheading",
+    "#services-title"
+  ];
+
+  servicesSectionElements.forEach((selector, i) => {
+    gsap.fromTo(selector,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.1,
+        scrollTrigger: {
+          trigger: selector,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+
+  gsap.utils.toArray('.service-card').forEach((card, i) => {
+    gsap.fromTo(card,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.1,
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+
+  const remarkElements = [
+    "#remark-title",
+    "#remark-line-1",
+    "#remark-cta"
+  ];
+
+  remarkElements.forEach((selector, i) => {
+    gsap.fromTo(selector,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        scrollTrigger: {
+          trigger: selector,
+          start: "top 90%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+</script>
+
+<!-- Script for the navbar -->
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
+  const hero = document.querySelector(".hero");
+  let menuOpen = false;
+
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (menuOpen) {
+      navbar.style.transform = '';
+    } else if (scrollTop > lastScrollTop) {
+      navbar.style.transform = "translateY(-100%)";
+    } else {
+      navbar.style.transform = '';
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+    if (hero) {
+      const heroHeight = hero.offsetHeight;
+      if (scrollTop > heroHeight * 0.15) {
+        navbar.classList.add("inverse");
+      } else {
+        navbar.classList.remove("inverse");
+      }
+    }
+
+    if (!hero) {
+      navbar.classList.add("inverse");
+    }
+
+    if (menuOpen) {
+      navbar.classList.remove('inverse');
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+</script>
+<!-- For mobile -->
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = menuBtn.querySelector('[data-menu-icon]');
+  const closeIcon = menuBtn.querySelector('[data-close-icon]');
+  const menuLinks = mobileMenu.querySelectorAll('a');
+
+  const toggleMenu = () => {
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    const isOpen = !isHidden;
+
+    menuOpen = isOpen;
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    openIcon.classList.toggle('hidden', isOpen);
+    closeIcon.classList.toggle('hidden', !isOpen);
+    document.body.classList.toggle('overflow-hidden', isOpen);
+
+    handleScroll();
+  };
+
+  menuBtn.addEventListener('click', toggleMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      toggleMenu();
+    }
+  });
+</script>
+
+</body>
+</html>

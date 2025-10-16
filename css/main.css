@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply Poiret One font globally */
+@layer base {
+  html {
+    font-size: 1.2em; /* bump root size ~20% for a lighter font */
+  }
+
+  body {
+    @apply font-custom;
+  }
+}
+
+/* Ensure images behave responsively */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body {
+  transition: opacity 0.5s ease;
+}
+
+
+.panel {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
