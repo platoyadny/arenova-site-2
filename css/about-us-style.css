@@ -1,0 +1,216 @@
+html {
+    overscroll-behavior: none;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  html,
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1 {
+    font-size: 80px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    width: 50%;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .header {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  .letters {
+    flex: 1;
+    display: flex;
+    text-transform: uppercase;
+  }
+  
+  .letters > div {
+    flex: 1;
+    font-size: 18vw;
+    font-weight: 400;
+    color: #36383e;
+    text-align: center;
+  }
+  
+  .website-content {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: #eaeaeb;
+  }
+  
+  /* .website-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;         
+    overflow: hidden;      
+  } */
+  
+  .img-holder {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    clip-path: polygon(37.5% 20%, 62.5% 20%, 62.5% 80%, 37.5% 80%);
+    transform: rotate(30deg);
+  }
+  
+  /* .img-holder img {
+    position: relative;
+    transform: scale(2);
+  } */
+
+  /* Blur the image and overscale to avoid edge halos */
+  .img-holder img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* filter: blur(6px);             */
+    filter: blur(6px) brightness(2); /* start brighter + blurred */
+    transform: scale(2);         /* start slightly larger than before */
+    -webkit-filter: blur(6px) brightness(2);
+  }
+  
+  .content-holder {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background: #eaeaeb;
+    color: #36383e;
+    /* give vertical breathing room, no huge side padding to keep images near edges */
+    padding: clamp(2rem, 5vw, 4rem) 0;
+  }
+
+  /* Title centered above the pairs */
+  .section-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  /* 2/3 of the viewport width, centered */
+  .section-intro {
+    display: flex;
+    justify-content: center;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .section-intro p {
+    width: 66.666vw;        /* 2/3 of the screen */
+    max-width: 1000px;
+    text-align: center;
+    color: #36383e;
+
+    /* Make it EXACTLY the same as other paragraphs */
+    font-size: 18px !important;
+    font-weight: 400;
+    line-height: 1.5;
+
+    margin: 0 auto;         /* keep it centered */
+  }
+
+  /* ====== Pairs: common container ====== */
+  .pair {
+    display: grid;
+    align-items: center;
+    /* Exact, equal space between image and text */
+    gap: 40px;
+
+    /* Pull the whole pair off the screen edges and center it */
+    max-width: 1200px;          /* tune this if you want a wider/narrower band */
+    margin: clamp(40px, 6vw, 72px) auto;   /* vertical spacing + centered */
+    padding: 0 40px;            /* consistent side padding */
+  }
+
+  /* Columns:
+    - pair-1: text left (flexible), image right (auto-sized by its max-width)
+    - pair-2: image left (auto), text right (flexible) */
+  .pair-1 { grid-template-columns: 1fr auto; }
+  .pair-2 { grid-template-columns: auto 1fr; }
+
+  /* ====== Image box ======
+    Make images smaller and consistent, and pull them in from edges
+    by capping their width and letting the container padding handle edge distance. */
+  .pair-img {
+    /* smaller than before: clamp keeps it responsive */
+    max-width: clamp(260px, 30vw, 420px);
+    aspect-ratio: 3 / 4;     /* nice vertical card look */
+    overflow: hidden;
+  }
+
+  /* The img fills its box cleanly */
+  .pair-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Remove previous “push to edge” nudges */
+  .pair-1 .pair-img,
+  .pair-2 .pair-img {
+    justify-self: center;     /* center within its column */
+    margin: 0;                /* no extra offsets */
+  }
+
+  /* ====== Text column ====== */
+  .pair-text p {
+    /* comfortable line length */
+    max-width: 52ch;
+    width: 100%;
+  }
+
+  /* ====== Mobile: stack vertically ====== */
+  @media (max-width: 900px) {
+    .pair,
+    .pair-1,
+    .pair-2 { grid-template-columns: 1fr; }
+
+    .pair-img {
+      max-width: 88vw;
+      margin: 0 auto 16px;
+    }
+
+    .pair-text p {
+      max-width: 65ch;
+      padding: 0 4vw;
+      margin: 0 auto;
+    }
+  }
+
+  
+  
+  

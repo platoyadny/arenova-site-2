@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arenova - мы сделаем Вам ремонт!</title>
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/anurati">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="tailwind.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+      font-size: 120%;
+    }
+  </style>
+  <style>
+    /* Default transparent navbar */
+    #navbar {
+      background-color: transparent;
+    }
+
+    /* The inverse navbar when scrolled down */
+    .inverse {
+      background-color: #eaeaeb !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .inverse #nav-links a {
+      color: #000000;
+    }
+
+    /* Burger icon stays dark */
+    #navbar [data-menu-icon],
+    #navbar [data-menu-icon] path {
+      stroke: #000000;
+    }
+
+    #navbar.inverse [data-menu-icon],
+    #navbar.inverse [data-menu-icon] path {
+      stroke: #000000;
+    }
+
+    /* Close icon stays dark */
+    #navbar [data-close-icon],
+    #navbar [data-close-icon] path {
+      stroke: #000000;
+    }
+
+    .inverse #logo {
+      content: url('assets/img/logo-transparent-grey.png');
+    }
+  </style>
+  </head>
+
+  <body class="bg-white text-black fade-out">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out bg-transparent">
+      <div class="flex items-center justify-between px-4 py-1.5">
+        <!-- Logo -->
+        <a href="index.html">
+          <img id="logo" src="assets/img/logo-transparent-grey.png" alt="Renova Logo" class="h-10 md:h-16 w-auto transition-all duration-500">
+        </a>
+
+        <!-- Burger (mobile) -->
+        <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden z-50 relative w-10 h-10 flex items-center justify-center">
+          <svg data-menu-icon class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg data-close-icon class="w-8 h-8 hidden text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/>
+          </svg>
+        </button>
+
+        <!-- Desktop Links -->
+        <div id="nav-links" class="hidden md:flex space-x-8 text-black uppercase text-base transition-colors duration-500">
+          <a href="index.html">Главная</a>
+          <a href="services2.html">Услуги</a>
+          <a href="projects.html">Реализованные проекты</a>
+          <a href="about-2.html">О компании</a>
+          <a href="contact.html">Контакты</a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="fixed inset-0 bg-[#eaeaeb] text-black hidden flex-col justify-center items-center z-40">
+        <img src="assets/img/logo-transparent-light-grey.png" alt="Renova Logo" class="h-14 mb-12">
+        <nav class="flex flex-col items-center space-y-6 text-xl font-medium uppercase">
+          <a href="index.html">Главная</a>
+          <a href="services2.html">Услуги</a>
+          <a href="projects.html">Реализованные проекты</a>
+          <a href="about-2.html">О компании</a>
+          <a href="contact.html">Контакты</a>
+        </nav>
+      </div>
+    </nav>  
+
+    <section id="contact" class="bg-[#eaeaeb] text-black py-36 px-6">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4 md:px-8">
+
+        <div>
+          <h2 class="text-4xl font-bold mb-6">Оставьте заявку</h2>
+          <p class="mb-4 text-black">
+            Пожалуйста, заполните форму с вашим запросом, и мы свяжемся с вами в ближайшее время. Либо свяжитесь с нами напрямую:
+          </p>
+          <div class="space-y-6 text-sm text-black">
+            <div>
+              <h4 class="font-semibold mb-1">Контакты:</h4>
+              <p>WhatsApp/Telegram: +7 (921) 300-31-79<br>Телефон: +7 (921) 300-31-79<br>Email: arenovaspb005@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <form action="https://formspree.io/f/xovdrldo" method="POST" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="text" name="first-name" placeholder="Имя" required class="w-full p-3 rounded bg-[#d1d1d1] text-black" />
+            <input type="text" name="last-name" placeholder="Фамилия" required class="w-full p-3 rounded bg-[#d1d1d1] text-black" />
+            <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded bg-[#d1d1d1] text-black" />
+            <input type="text" name="phone" placeholder="Телефон" class="w-full p-3 rounded bg-[#d1d1d1] text-black" />
+            <input type="text" name="address" placeholder="Ваш город" class="w-full p-3 rounded bg-[#d1d1d1] text-black sm:col-span-2" />
+          </div>
+
+          <textarea name="message" rows="5" placeholder="Какой у Вас вопрос?" class="w-full p-3 rounded bg-[#d1d1d1] text-black"></textarea>
+
+          <div class="space-y-2">
+            <p class="font-semibold text-sm">Откуда Вы узнали о Нас?</p>
+            <label class="block"><input type="radio" name="referral" value="Word of mouth" class="mr-2" /> Увидел(а) в соцсетях</label>
+            <label class="block"><input type="radio" name="referral" value="Facebook" class="mr-2" /> Рассказал знакомый</label>
+            <label class="block"><input type="radio" name="referral" value="Google" class="mr-2" /> Нашел в интернете</label>
+            <label class="block"><input type="radio" name="referral" value="Other" class="mr-2" /> Другое</label>
+          </div>
+
+          <button type="submit" class="mt-6 bg-white text-black px-6 py-2 rounded border border-black hover:bg-black hover:text-white transition">
+            Отправить
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <footer class="text-white py-8 text-center" style="background-color:#222222;">
+    <p class="text-sm">© 2025 Arenova. Все права защищены.</p>
+  </footer>
+
+  <script src="js/page-fade.js"></script>
+  <!-- Script for the navbar -->
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+    let menuOpen = false;
+
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (menuOpen) {
+        navbar.style.transform = '';
+      } else if (scrollTop > lastScrollTop) {
+        navbar.style.transform = "translateY(-100%)";
+      } else {
+        navbar.style.transform = '';
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+      // Add inverse class after scrolling down 20px
+      if (scrollTop > 20) {
+        navbar.classList.add("inverse");
+      } else {
+        navbar.classList.remove("inverse");
+      }
+
+      if (menuOpen) {
+        navbar.classList.remove('inverse');
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  </script>
+
+  <!-- For mobile -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = menuBtn.querySelector('[data-menu-icon]');
+    const closeIcon = menuBtn.querySelector('[data-close-icon]');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    const toggleMenu = () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      const isOpen = !isHidden;
+
+      menuOpen = isOpen;
+      menuBtn.setAttribute('aria-expanded', isOpen);
+      openIcon.classList.toggle('hidden', isOpen);
+      closeIcon.classList.toggle('hidden', !isOpen);
+      document.body.classList.toggle('overflow-hidden', isOpen);
+
+      handleScroll();
+    };
+
+    menuBtn.addEventListener('click', toggleMenu);
+
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (!mobileMenu.classList.contains('hidden')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  </script>
+
+</body>
+</html>
